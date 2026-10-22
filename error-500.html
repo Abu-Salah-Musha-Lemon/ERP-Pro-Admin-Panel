@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- ==================== error-500.html ==================== -->
+<html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><meta name="description" content="ERP Pro — Enterprise Resource Planning & Inventory Management"><meta name="theme-color" content="#FF9F43"><title>Error 500 — ERP Pro</title><link rel="icon" type="image/png" href="assets/img/favicon.png">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Bootstrap 5.3.2 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<!-- Bootstrap Icons 1.11.3 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Font Awesome 6.5.0 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- DataTables 1.13.8 + Bootstrap5 skin (MUST match exactly) -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
+<!-- DataTables Buttons 2.4.2 -->
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css">
+<!-- DataTables Responsive 2.5.0 -->
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+<!-- NOTE: ColReorder is NOT loaded — it conflicts with Responsive on column index mapping.
+     Column visibility is handled via the ColVis button only. -->
+
+<!-- Select2 4.0.13 STABLE (NOT 4.1.0-rc which is unstable) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css">
+
+<!-- Flatpickr 4.6.13 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+
+<!-- Toastr 2.1.4 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+
+<!-- SweetAlert2 11 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- Animate.css 4.1.1 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<!-- JsBarcode (for barcode.html only) -->
+<!-- loaded inline on barcode.html only — not global -->
+
+<!-- Custom (always last) -->
+<link rel="stylesheet" href="assets/css/style.css">
+</head><body data-page="error-500">
+<main class="error-page"><div><div class="mb-3"><img src="assets/img/logo.png" alt="ERP Pro" width="165"></div><h1>500</h1><h2>Something went wrong</h2><p class="text-muted mb-4">This is a demonstration error screen; no server issue was detected.</p><a class="btn btn-primary" href="index.html"><i class="bi bi-arrow-left me-1"></i>Go to dashboard</a></div></main>
+<!-- jQuery 3.6.4 — SlimScroll requires ≤ 3.6.x; 3.7 breaks it -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Bootstrap 5.3.2 bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- DataTables 1.13.8 core -->
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- DataTables Buttons 2.4.2 -->
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<!-- JSZip 3.10.1 (must load BEFORE buttons.html5) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<!-- pdfmake 0.2.7 + matching vfs_fonts (versions MUST match) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<!-- buttons.html5 AFTER jszip and pdfmake -->
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+
+<!-- DataTables Responsive 2.5.0 -->
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
+<!-- Select2 4.0.13 STABLE -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+
+<!-- Flatpickr 4.6.13 -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+
+<!-- jQuery SlimScroll 1.3.6 (NOT 1.3.8 — broken on jQuery 3.6+) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.6/jquery.slimscroll.min.js"></script>
+
+<!-- ApexCharts 3.45.2 -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.2/dist/apexcharts.min.js"></script>
+
+<!-- Toastr 2.1.4 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+<!-- SweetAlert2 11 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<!-- CDN failure guard (load before script.js) -->
+<script>
+  // Non-blocking fallback when offline.
+  if (typeof window.jQuery === 'undefined' || typeof jQuery.fn.DataTable === 'undefined') {
+    console.warn('DataTables failed to load from CDN. Tables will render as plain HTML.');
+  }
+  if (typeof toastr === 'undefined') {
+    window.toastr = {
+      success: function(m){ console.log('[Toastr SUCCESS]', m); },
+      error:   function(m){ console.error('[Toastr ERROR]', m); },
+      info:    function(m){ console.info('[Toastr INFO]', m); },
+      warning: function(m){ console.warn('[Toastr WARNING]', m); }
+    };
+  }
+</script>
+
+<script src="assets/js/seed.js"></script>
+<!-- Custom JS (always last) -->
+<script src="assets/js/script.js"></script>
+
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- ==================== pos.html ==================== -->
+<html lang="en" dir="ltr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><meta name="description" content="ERP Pro — Enterprise Resource Planning & Inventory Management"><meta name="theme-color" content="#FF9F43"><title>POS terminal — ERP Pro</title><link rel="icon" type="image/png" href="assets/img/favicon.png">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Bootstrap 5.3.2 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+<!-- Bootstrap Icons 1.11.3 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Font Awesome 6.5.0 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- DataTables 1.13.8 + Bootstrap5 skin (MUST match exactly) -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
+<!-- DataTables Buttons 2.4.2 -->
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css">
+<!-- DataTables Responsive 2.5.0 -->
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+<!-- NOTE: ColReorder is NOT loaded — it conflicts with Responsive on column index mapping.
+     Column visibility is handled via the ColVis button only. -->
+
+<!-- Select2 4.0.13 STABLE (NOT 4.1.0-rc which is unstable) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css">
+
+<!-- Flatpickr 4.6.13 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+
+<!-- Toastr 2.1.4 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+
+<!-- SweetAlert2 11 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- Animate.css 4.1.1 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<!-- JsBarcode (for barcode.html only) -->
+<!-- loaded inline on barcode.html only — not global -->
+
+<!-- Custom (always last) -->
+<link rel="stylesheet" href="assets/css/style.css">
+</head><body data-page="pos">
+<div class="pos-wrapper"><header class="pos-header"><a href="index.html"><img src="assets/img/logo.png" alt="ERP Pro" width="147"></a><div class="d-flex align-items-center gap-3"><span class="demo-tag">Point of sale · Demo</span><a href="index.html" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left me-1"></i>Dashboard</a></div></header><main class="pos-body"><div class="pos-left"><div class="card mb-3"><div class="card-body"><div class="d-flex flex-wrap justify-content-between gap-2 align-items-center mb-3"><div><h5 class="card-title">Product catalog</h5><div class="card-subtitle">Choose items for this sale</div></div><input class="form-control" id="pos-product-search" type="search" placeholder="Search products…" aria-label="Search POS products" style="max-width:230px"></div><div class="d-flex gap-2 flex-wrap mb-3" id="pos-categories"><button type="button" class="btn btn-sm btn-primary pos-category" data-category="All">All</button><button type="button" class="btn btn-sm btn-outline-secondary pos-category" data-category="Electronics">Electronics</button><button type="button" class="btn btn-sm btn-outline-secondary pos-category" data-category="Clothing">Clothing</button><button type="button" class="btn btn-sm btn-outline-secondary pos-category" data-category="Footwear">Footwear</button><button type="button" class="btn btn-sm btn-outline-secondary pos-category" data-category="Furniture">Furniture</button></div><div class="pos-product-grid"><button type="button" class="pos-product pos-add-btn" data-id="PRD-001" data-category="Electronics" aria-label="Add iPhone 15 Pro 256GB"><div class="product-visual">📱</div><h6>iPhone 15 Pro 256GB</h6><span class="small-muted">Electronics · 45 in stock</span><b>$999.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button><button type="button" class="pos-product pos-add-btn" data-id="PRD-002" data-category="Electronics" aria-label="Add MacBook Air M2"><div class="product-visual">💻</div><h6>MacBook Air M2</h6><span class="small-muted">Electronics · 12 in stock</span><b>$1,299.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button><button type="button" class="pos-product pos-add-btn" data-id="PRD-003" data-category="Electronics" aria-label="Add Samsung 65&quot; QLED TV"><div class="product-visual">📺</div><h6>Samsung 65&quot; QLED TV</h6><span class="small-muted">Electronics · 8 in stock</span><b>$849.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button><button type="button" class="pos-product pos-add-btn" data-id="PRD-004" data-category="Electronics" aria-label="Add Sony WH-1000XM5"><div class="product-visual">🎧</div><h6>Sony WH-1000XM5</h6><span class="small-muted">Electronics · 3 in stock</span><b>$349.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button><button type="button" class="pos-product pos-add-btn" data-id="PRD-005" data-category="Electronics" aria-label="Add Dell UltraSharp 27&quot;"><div class="product-visual">💻</div><h6>Dell UltraSharp 27&quot;</h6><span class="small-muted">Electronics · 22 in stock</span><b>$499.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button><button type="button" class="pos-product pos-add-btn" data-id="PRD-006" data-category="Clothing" aria-label="Add Levi&#x27;s 501 Jeans"><div class="product-visual">👖</div><h6>Levi&#x27;s 501 Jeans</h6><span class="small-muted">Clothing · 150 in stock</span><b>$89.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button><button type="button" class="pos-product pos-add-btn" data-id="PRD-007" data-category="Footwear" aria-label="Add Nike Air Max 270"><div class="product-visual">👟</div><h6>Nike Air Max 270</h6><span class="small-muted">Footwear · 75 in stock</span><b>$129.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button><button type="button" class="pos-product pos-add-btn" data-id="PRD-008" data-category="Furniture" aria-label="Add Ergonomic Office Chair"><div class="product-visual">🪑</div><h6>Ergonomic Office Chair</h6><span class="small-muted">Furniture · 18 in stock</span><b>$699.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button><button type="button" class="pos-product pos-add-btn" data-id="PRD-009" data-category="Electronics" aria-label="Add AirPods Pro (2nd Gen)"><div class="product-visual">🎧</div><h6>AirPods Pro (2nd Gen)</h6><span class="small-muted">Electronics · 0 in stock</span><b>$249.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button><button type="button" class="pos-product pos-add-btn" data-id="PRD-010" data-category="Electronics" aria-label="Add iPad Mini 6"><div class="product-visual">📱</div><h6>iPad Mini 6</h6><span class="small-muted">Electronics · 31 in stock</span><b>$499.00</b><span class="btn btn-primary btn-sm"><i class="bi bi-plus-lg me-1"></i>Add</span></button></div></div></div><div class="card"><div class="card-header"><h5>Current order</h5><span class="small-muted" id="pos-item-count">0 items</span></div><div class="card-body"><div class="table-responsive"><table class="table pos-order-table"><caption class="visually-hidden">Current point of sale cart</caption><thead><tr><th>Product</th><th>Qty</th><th>Unit</th><th>Subtotal</th><th></th></tr></thead><tbody id="pos-order-body"><tr><td colspan="5" class="text-center text-muted py-4">No items added yet</td></tr></tbody></table></div></div></div></div><div class="pos-right"><div class="card"><div class="card-header"><div><h5>Checkout</h5><div class="card-subtitle">Sale calculation & payment</div></div><span class="demo-tag">Demo POS</span></div><div class="card-body"><label class="form-label" for="pos-customer">Customer</label><select class="form-select mb-3" id="pos-customer"><option value="">Walk-in customer</option><option value="CUS-001">James Anderson</option><option value="CUS-002">Sarah Mitchell</option><option value="CUS-003">Li Wei</option><option value="CUS-004">Maria Santos</option><option value="CUS-005">Raj Patel</option><option value="CUS-006">Emma Johnson</option><option value="CUS-007">Carlos Ruiz</option><option value="CUS-008">Aisha Okafor</option></select><div class="pos-totals"><div><span>Subtotal</span><strong id="pos-subtotal">$0.00</strong></div><div><span>Discount</span><input type="number" min="0" step="0.01" id="pos-discount-input" class="form-control" value="0" style="max-width:100px" aria-label="Discount in dollars"></div><div><span>Tax (8%)</span><strong id="pos-tax">$0.00</strong></div><div class="grand-total"><span>Total due</span><strong id="pos-total">$0.00</strong></div></div><div class="mt-3"><label class="form-label">Payment method</label><div class="pos-methods"><label><input name="pos-method" value="Cash" type="radio" checked><i class="bi bi-cash me-1"></i>Cash</label><label><input name="pos-method" value="Card" type="radio" ><i class="bi bi-credit-card me-1"></i>Card</label><label><input name="pos-method" value="Bank" type="radio" ><i class="bi bi-bank me-1"></i>Bank</label></div></div><label class="form-label mt-3" for="pos-cash-display">Amount tendered</label><input id="pos-cash-display" class="form-control mb-2" type="text" inputmode="decimal" value="" placeholder="$0.00"><div class="numpad-grid"><button type="button" class="numpad-btn" data-val="1" aria-label="Numpad 1">1</button><button type="button" class="numpad-btn" data-val="2" aria-label="Numpad 2">2</button><button type="button" class="numpad-btn" data-val="3" aria-label="Numpad 3">3</button><button type="button" class="numpad-btn" data-val="4" aria-label="Numpad 4">4</button><button type="button" class="numpad-btn" data-val="5" aria-label="Numpad 5">5</button><button type="button" class="numpad-btn" data-val="6" aria-label="Numpad 6">6</button><button type="button" class="numpad-btn" data-val="7" aria-label="Numpad 7">7</button><button type="button" class="numpad-btn" data-val="8" aria-label="Numpad 8">8</button><button type="button" class="numpad-btn" data-val="9" aria-label="Numpad 9">9</button><button type="button" class="numpad-btn" data-val="." aria-label="Numpad .">.</button><button type="button" class="numpad-btn" data-val="0" aria-label="Numpad 0">0</button><button type="button" class="numpad-btn" data-val="backspace" aria-label="Numpad backspace">⌫</button></div><div class="d-flex justify-content-between align-items-center my-3"><span>Change due</span><strong id="pos-change">$0.00</strong></div><div class="d-flex gap-2"><button type="button" id="pos-hold-btn" class="btn btn-outline-secondary flex-fill">Hold</button><button type="button" id="pos-clear-btn" class="btn btn-outline-danger flex-fill">Clear</button></div><button type="button" id="pos-pay-btn" class="btn btn-primary w-100 mt-2"><i class="bi bi-check-circle me-1"></i>Complete sale</button><p class="small-muted mt-3 mb-0">Demo checkout. No card charges or real stock reservations.</p></div></div></div></main><section class="receipt" id="pos-receipt" aria-label="Receipt"></section></div>
+<!-- jQuery 3.6.4 — SlimScroll requires ≤ 3.6.x; 3.7 breaks it -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Bootstrap 5.3.2 bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- DataTables 1.13.8 core -->
+<script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+<!-- DataTables Buttons 2.4.2 -->
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<!-- JSZip 3.10.1 (must load BEFORE buttons.html5) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<!-- pdfmake 0.2.7 + matching vfs_fonts (versions MUST match) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<!-- buttons.html5 AFTER jszip and pdfmake -->
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+
+<!-- DataTables Responsive 2.5.0 -->
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
+<!-- Select2 4.0.13 STABLE -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.full.min.js"></script>
+
+<!-- Flatpickr 4.6.13 -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+
+<!-- jQuery SlimScroll 1.3.6 (NOT 1.3.8 — broken on jQuery 3.6+) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.6/jquery.slimscroll.min.js"></script>
+
+<!-- ApexCharts 3.45.2 -->
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@3.45.2/dist/apexcharts.min.js"></script>
+
+<!-- Toastr 2.1.4 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+
+<!-- SweetAlert2 11 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+<!-- CDN failure guard (load before script.js) -->
+<script>
+  // Non-blocking fallback when offline.
+  if (typeof window.jQuery === 'undefined' || typeof jQuery.fn.DataTable === 'undefined') {
+    console.warn('DataTables failed to load from CDN. Tables will render as plain HTML.');
+  }
+  if (typeof toastr === 'undefined') {
+    window.toastr = {
+      success: function(m){ console.log('[Toastr SUCCESS]', m); },
+      error:   function(m){ console.error('[Toastr ERROR]', m); },
+      info:    function(m){ console.info('[Toastr INFO]', m); },
+      warning: function(m){ console.warn('[Toastr WARNING]', m); }
+    };
+  }
+</script>
+
+<script src="assets/js/seed.js"></script>
+<!-- Custom JS (always last) -->
+<script src="assets/js/script.js"></script>
+
+</body></html>
