@@ -1,3 +1,4 @@
+/* Copyright 2026 Abu Salah Musha Lemon. SPDX-License-Identifier: Apache-2.0 */
 /* ERP Pro — Vanilla JS behavior, Bootstrap 5, DataTables & ApexCharts.
    This is a client-only demonstrator. Do not treat localStorage as secure storage. */
 (function () {
@@ -394,4 +395,22 @@ registerChart(expenseChart);
   window.addEventListener('load',()=>{const loader=$('#page-loader');if(loader){loader.style.opacity='0';setTimeout(()=>loader.remove(),350);}});
   document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>$('#page-loader')?.remove(),800);initPlugins();initTheme();initShell();initRecords();initSettings();initAuth();initBarcode();initPOS();initCharts();});
   window.ERP_DEMO={records,save,drawAll,csvExport};
+})();
+
+/* Optional public donation link: only show when an HTTPS link is configured. */
+(function setupProjectDonationLink() {
+  function install() {
+    var value = window.ERP_CONFIG && window.ERP_CONFIG.donationUrl;
+    if (typeof value !== 'string' || !value.trim()) return;
+    try {
+      var parsed = new URL(value.trim());
+      if (parsed.protocol !== 'https:' || !parsed.hostname || parsed.username || parsed.password) return;
+      document.querySelectorAll('[data-donation-link]').forEach(function (link) {
+        link.href = parsed.href;
+        link.hidden = false;
+      });
+    } catch (error) { /* Invalid or unset URL: leave donation links hidden. */ }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', install);
+  else install();
 })();

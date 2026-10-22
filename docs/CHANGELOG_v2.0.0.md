@@ -1,4 +1,4 @@
-# ERP Pro v2.1 — Responsive Sidebar & Dark Mode maintenance release
+# ERP Pro v2.0.0 — Responsive Sidebar & Dark Mode maintenance release
 
 ## Corrections
 

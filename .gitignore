@@ -1,0 +1,30 @@
+# Operating system and editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python test caches
+__pycache__/
+.pytest_cache/
+*.py[cod]
+.venv/
+venv/
+
+# Local temporary reports, logs and archives
+*.log
+*.tmp
+*.bak
+*.zip
+dist/
+build/
+
+# Secrets (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.key

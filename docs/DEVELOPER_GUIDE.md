@@ -84,3 +84,12 @@ Edit `:root` token values in `assets/css/style.css` (`--primary`, `--active-item
 `tests/validate_project.py` performs structural checks: required pages/assets, internal links, duplicate IDs, input labels, table captions and JS syntax if Node is present. It does not prove that all CDN libraries load in the user's browser. Browser-assisted smoke tests were run against inline DOMs with external libraries stubbed because the test container blocks local browser navigation; this validates primary custom interactions, not fully integrated end-to-end behavior.
 
 The uploaded specification requests a production-ready system. This static delivery implements its interface and representative local interactions; production architecture and service integrations are intentionally out of scope until a backend is chosen.
+
+
+## v3.0.1 Footer, attribution and donation configuration
+
+- All 32 HTML entrypoints contain `.site-footer`, styled centrally in `assets/css/style.css`.
+- `#page-wrapper` is a flex column so the copyright stays at the bottom on short admin pages without blocking long content. Standalone auth/error/POS pages have corresponding layout rules.
+- Source copyright: `LICENSE` (Apache-2.0) and `NOTICE` (author attribution).
+- Future donation link: set `window.ERP_CONFIG.donationUrl` in `assets/js/project-config.js` to your provider's verified HTTPS URL. The footer Donate link stays hidden otherwise. No backend or secrets are included.
+- For new pages, copy the footer markup from `index.html`, ensure it resides inside the main app wrapper on admin views, and load `project-config.js` before `script.js`.

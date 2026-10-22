@@ -1,6 +1,6 @@
-# ERP Pro Admin — v3.0 Verification
+# ERP Pro Admin — v3.0.0 Verification
 
-**Scope:** The v2.1 ZIP was used as the source; all 32 standalone HTML pages were retained.
+**Scope:** The v2.0.0 ZIP was used as the source; all 32 standalone HTML pages were retained.
 
 ## Passed automated checks
 

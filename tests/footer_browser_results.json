@@ -1,0 +1,13 @@
+{
+  "page_count": 32,
+  "theme_width_checks": 256,
+  "screenshots": [
+    "docs/screenshots/index-footer-light.png",
+    "docs/screenshots/index-footer-dark.png",
+    "docs/screenshots/signin-footer-light.png",
+    "docs/screenshots/signin-footer-dark.png",
+    "docs/screenshots/pos-footer-light.png",
+    "docs/screenshots/pos-footer-dark.png"
+  ],
+  "errors": []
+}
