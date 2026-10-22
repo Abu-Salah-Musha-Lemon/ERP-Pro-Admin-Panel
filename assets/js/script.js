@@ -3,6 +3,7 @@
 (function () {
   'use strict';
   const SEED=window.ERP_SEED||{};
+  const chartInstances=[];
   const PREFIX='erpProDemoV2:';
   const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
   const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -15,7 +16,7 @@
   }
   function save(entity,data){storage.set('records:'+entity,JSON.stringify(data));}
   function notify(msg,type='success',title='ERP Pro'){
-    if(window.toastr&&typeof window.toastr[type]==='function'){window.toastr[type](msg,title);return;}
+    if(window.toastr&&!window.toastr.__erpFallback&&typeof window.toastr[type]==='function'){window.toastr[type](msg,title);return;}
     let holder=$('#fallback-toast');if(!holder){holder=document.createElement('div');holder.id='fallback-toast';holder.setAttribute('role','status');holder.style.cssText='position:fixed;right:15px;bottom:15px;z-index:4000;max-width:340px';document.body.append(holder)}
     const n=document.createElement('div');n.textContent=title+': '+msg;n.style.cssText='padding:12px 18px;margin-top:8px;color:#fff;background:#1b2850;border-radius:8px;box-shadow:0 8px 20px #0003';holder.append(n);setTimeout(()=>n.remove(),3700);
   }
@@ -107,22 +108,94 @@
   function parseCSV(text){const rows=[];let row=[],v='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){v+='"';i++;}else quoted=!quoted;}else if(c===','&&!quoted){row.push(v);v='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(v);if(row.some(x=>x.length))rows.push(row);row=[];v='';}else v+=c;}if(quoted)throw Error('Unclosed quote');row.push(v);if(row.some(x=>x.length))rows.push(row);if(!rows.length)throw Error('Empty CSV');return rows;}
   function updateBulk(table){const body=table.closest('.card-body'),bar=body?.querySelector('.bulk-bar');if(!bar)return;const selected=currentSelected(table);bar.classList.toggle('d-none',selected.length===0);bar.querySelector('.bulk-count').textContent=selected.length+' selected';const all=Array.from(table.querySelectorAll('tbody .row-cb'));const master=table.querySelector('.select-all-cb');if(master){master.checked=all.length>0&&selected.length===all.length;master.indeterminate=selected.length>0&&selected.length<all.length;}}
   function initTables(){$$('.datatable[data-entity]').forEach(drawTable);$$('[data-stats-entity]').forEach(x=>updateStats(x.dataset.statsEntity));}
+  const MOBILE_BREAKPOINT=992;
   function initShell(){
     const sidebar=$('#sidebar'),body=document.body,overlay=$('#sidebar-overlay');
-    if(storage.get('sidebarMini')==='true')body.classList.add('mini-sidebar');
-    $('#toggle-sidebar')?.addEventListener('click',()=>{body.classList.toggle('mini-sidebar');storage.set('sidebarMini',String(body.classList.contains('mini-sidebar')))});
-    const close=()=>{body.classList.remove('sidebar-open');overlay?.classList.remove('active');};
-    $('#mobile-menu-btn')?.addEventListener('click',()=>{body.classList.add('sidebar-open');overlay?.classList.add('active')});overlay?.addEventListener('click',close);
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')close();if(e.key==='/'&&!/input|textarea/i.test(document.activeElement?.tagName||'')){e.preventDefault();$('#global-search')?.focus();}});
-    sidebar?.querySelectorAll('.submenu>a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const li=a.parentElement;const open=li.classList.contains('open');sidebar.querySelectorAll('.submenu.open').forEach(x=>{if(x!==li){x.classList.remove('open');x.querySelector(':scope>a')?.setAttribute('aria-expanded','false');}});li.classList.toggle('open',!open);a.setAttribute('aria-expanded',String(!open));}));
+    const desktopToggle=$('#toggle-sidebar'),mobileToggle=$('#mobile-menu-btn'),mobileClose=$('#close-sidebar');
+    const mobile=()=>window.innerWidth<MOBILE_BREAKPOINT;
+    const setMini=(mini,persist=true)=>{
+      body.classList.toggle('mini-sidebar',mini);
+      desktopToggle?.setAttribute('aria-expanded',String(!mini));
+      desktopToggle?.setAttribute('aria-label',mini?'Expand sidebar':'Collapse sidebar');
+      desktopToggle?.setAttribute('title',mini?'Expand sidebar':'Collapse sidebar');
+      if(persist)storage.set('sidebarMini',String(mini));
+      const pref=$('#pref-mini');if(pref)pref.checked=mini;
+    };
+    setMini(storage.get('sidebarMini')==='true',false);
+    const setMobileOpen=open=>{
+      const visible=!!open&&mobile();
+      body.classList.toggle('sidebar-open',visible);
+      overlay?.classList.toggle('active',visible);
+      mobileToggle?.setAttribute('aria-expanded',String(visible));
+      mobileToggle?.setAttribute('aria-label',visible?'Close navigation menu':'Open navigation menu');
+      if(sidebar){
+        // Remove off-canvas links from the mobile keyboard tab order.
+        sidebar.inert=mobile()&&!visible;
+        sidebar.setAttribute('aria-hidden',String(mobile()&&!visible));
+      }
+      if(overlay)overlay.setAttribute('aria-hidden',String(!visible));
+      if(!visible&&mobile()&&sidebar?.contains(document.activeElement))mobileToggle?.focus();
+    };
+    desktopToggle?.addEventListener('click',()=>setMini(!body.classList.contains('mini-sidebar')));
+    mobileToggle?.addEventListener('click',()=>setMobileOpen(!body.classList.contains('sidebar-open')));
+    mobileClose?.addEventListener('click',()=>{setMobileOpen(false);mobileToggle?.focus();});
+    overlay?.addEventListener('click',()=>setMobileOpen(false));
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'&&body.classList.contains('sidebar-open'))setMobileOpen(false);
+      if(e.key==='/'&&!/input|textarea|select/i.test(document.activeElement?.tagName||'')&&!e.ctrlKey&&!e.metaKey){e.preventDefault();$('#global-search')?.focus();}
+    });
+    document.addEventListener('click',e=>{
+      if(mobile()&&body.classList.contains('sidebar-open')&&e.target.closest('#sidebar a[href$=".html"]'))setMobileOpen(false);
+    });
+    let wasMobile=mobile();
+    window.addEventListener('resize',()=>{const isMobile=mobile();if(isMobile!==wasMobile){wasMobile=isMobile;setMobileOpen(false);}else if(!isMobile&&body.classList.contains('sidebar-open'))setMobileOpen(false);});
+    sidebar?.querySelectorAll('.submenu>a').forEach(a=>{
+      a.setAttribute('role','button');
+      a.addEventListener('click',e=>{
+        e.preventDefault();const li=a.parentElement,open=li.classList.contains('open');
+        sidebar.querySelectorAll('.submenu.open').forEach(x=>{if(x!==li){x.classList.remove('open');x.querySelector(':scope>a')?.setAttribute('aria-expanded','false');}});
+        li.classList.toggle('open',!open);a.setAttribute('aria-expanded',String(!open));
+      });
+      a.addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();a.click();}});
+    });
     const path=location.pathname.split('/').pop()||'index.html';
-    sidebar?.querySelectorAll('a[href]').forEach(a=>{const href=a.getAttribute('href').split('#')[0];if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');const parent=a.closest('.submenu');if(parent){parent.classList.add('open');parent.querySelector(':scope>a')?.setAttribute('aria-expanded','true');}}});
-    const theme=storage.get('dark')==='true';applyTheme(theme,false);
-    $('#dark-mode-btn')?.addEventListener('click',()=>applyTheme(document.body.getAttribute('data-theme')!=='dark'));
+    sidebar?.querySelectorAll('a[href]').forEach(a=>{
+      const href=a.getAttribute('href').split('#')[0];
+      if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');
+        const parent=a.closest('.submenu');if(parent){parent.classList.add('open');parent.querySelector(':scope>a')?.setAttribute('aria-expanded','true');}}
+    });
+    setMobileOpen(false);
     initGlobalSearch();initNotifications();
-    document.querySelectorAll('.lang-dropdown .dropdown-item').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();const lang=a.dataset.lang;if(lang!=='EN'){notify('Translation packs are not installed in this demo.','info','Language');return;}notify('English is the current interface language.','info','Language');}));
+    $$('.lang-dropdown .dropdown-item').forEach(a=>a.addEventListener('click',e=>{
+      e.preventDefault();notify(a.dataset.lang==='EN'?'English is the current interface language.':'Translation packs are not installed in this demo.','info','Language');
+    }));
   }
-  function applyTheme(on,toast=true){document.body.toggleAttribute('data-theme',false);if(on)document.body.setAttribute('data-theme','dark');else document.body.removeAttribute('data-theme');storage.set('dark',String(on));const icon=$('#dark-icon');if(icon)icon.className='bi '+(on?'bi-sun':'bi-moon-stars');if(toast)notify((on?'Dark':'Light')+' mode enabled.','info','Theme');}
+  function applyTheme(on,toast=true){
+    const root=document.documentElement;
+    root.setAttribute('data-bs-theme',on?'dark':'light');
+    root.dataset.theme=on?'dark':'light';
+    document.body.toggleAttribute('data-theme',false);
+    if(on)document.body.setAttribute('data-theme','dark');else document.body.removeAttribute('data-theme');
+    storage.set('dark',String(on));
+    const icon=$('#dark-icon');if(icon)icon.className='bi '+(on?'bi-sun':'bi-moon-stars');
+    const control=$('#dark-mode-btn');if(control){
+      control.setAttribute('aria-pressed',String(on));
+      control.setAttribute('aria-label',on?'Switch to light mode':'Switch to dark mode');
+      control.setAttribute('title',on?'Switch to light mode':'Switch to dark mode');
+    }
+    const meta=$('meta[name="theme-color"]');if(meta)meta.setAttribute('content',on?'#141432':'#FF9F43');
+    const pref=$('#pref-dark');if(pref)pref.checked=on;
+    // Keep ApexCharts annotations, grids and tooltips legible in either theme.
+    chartInstances.forEach(chart=>{
+      try{chart.updateOptions({theme:{mode:on?'dark':'light'},chart:{foreColor:on?'#c5cee4':'#637381'},grid:{borderColor:on?'#39435f':'#e8ebed'},tooltip:{theme:on?'dark':'light'}},false,false);}catch(e){console.warn('Chart theme update skipped:',e);}
+    });
+    if(toast)notify((on?'Dark':'Light')+' mode enabled.','info','Theme');
+  }
+  function initTheme(){
+    // Apply the saved theme on every page, including POS, authentication and error screens.
+    applyTheme(storage.get('dark')==='true',false);
+    $('#dark-mode-btn')?.addEventListener('click',()=>applyTheme(document.body.getAttribute('data-theme')!=='dark'));
+  }
   function initNotifications(){const defaults=[{icon:'bi-cart3',msg:'New demo sale created',time:'Today'},{icon:'bi-box-seam',msg:'Sony WH-1000XM5 stock is low',time:'Today'},{icon:'bi-person-plus',msg:'New customer record available',time:'Yesterday'},{icon:'bi-receipt',msg:'Invoice INV-2046 is pending',time:'Yesterday'},{icon:'bi-arrow-left-right',msg:'Transfer TRF-001 completed',time:'Yesterday'}];
     const all=storage.json('notifications')??defaults,wrap=$('#notif-list');if(wrap)wrap.innerHTML=all.map(n=>'<div class="notif-item"><span class="notif-icon"><i class="bi '+esc(n.icon)+'"></i></span><div class="notif-body"><p>'+esc(n.msg)+'</p><span>'+esc(n.time)+'</span></div></div>').join('')||'<p class="small-muted m-3">No new notifications.</p>';
     const badge=$('#notif-count');if(badge)badge.textContent=String(all.length);
@@ -157,8 +230,9 @@
   function initSettings(){
     $$('.settings-form').forEach(form=>{
       const key='settings:'+form.dataset.settings,old=storage.json(key);if(old)Object.entries(old).forEach(([name,val])=>{const el=form.elements.namedItem(name);if(el){if(el.type==='checkbox')el.checked=!!val;else el.value=String(val);}});
+      if(form.dataset.settings==='preferences'){const dark=$('#pref-dark'),mini=$('#pref-mini');if(dark)dark.checked=storage.get('dark')==='true';if(mini)mini.checked=storage.get('sidebarMini')==='true';}
       form.addEventListener('submit',e=>{e.preventDefault();if(!validatedForm(form))return;const obj={};Array.from(form.elements).filter(x=>x.name).forEach(el=>{obj[el.name]=el.type==='checkbox'?el.checked:el.value});if(form.dataset.settings==='email'){delete obj.password;notify('SMTP password is intentionally not stored. A backend is required to configure email.','info');}
-        storage.set(key,JSON.stringify(obj));if(form.dataset.settings==='preferences'){applyTheme(!!obj.dark,false);document.body.classList.toggle('mini-sidebar',!!obj.mini);storage.set('sidebarMini',String(!!obj.mini));}notify('Demo settings saved locally.');});
+        storage.set(key,JSON.stringify(obj));if(form.dataset.settings==='preferences'){applyTheme(!!obj.dark,false);document.body.classList.toggle('mini-sidebar',!!obj.mini);storage.set('sidebarMini',String(!!obj.mini));const toggle=$('#toggle-sidebar');if(toggle){toggle.setAttribute('aria-expanded',String(!obj.mini));toggle.setAttribute('aria-label',obj.mini?'Expand sidebar':'Collapse sidebar');toggle.title=obj.mini?'Expand sidebar':'Collapse sidebar';}}notify('Demo settings saved locally.');});
     });
     $('#test-smtp')?.addEventListener('click',()=>notify('SMTP connection cannot be tested without a configured backend.','warning','Email'));
     $$('.payment-switch').forEach(input=>{input.checked=storage.get(input.id)==='true';input.addEventListener('change',()=>{storage.set(input.id,String(input.checked));notify('Payment UI preference updated. No payment gateway is connected.','info','Payment');});});
@@ -220,6 +294,15 @@
     if(window.flatpickr){$$('.flatpickr-date').forEach(el=>flatpickr(el,{dateFormat:'d-m-Y'}));$$('.flatpickr-range').forEach(el=>flatpickr(el,{mode:'range',dateFormat:'d-m-Y'}));}
     if(window.bootstrap?.Tooltip)$$('[data-bs-toggle="tooltip"]').forEach(x=>new bootstrap.Tooltip(x));
   }
+  function registerChart(chart){
+    chartInstances.push(chart);
+    const result=chart.render();
+    if(result&&typeof result.then==='function')result.then(()=>{
+      if(document.body.getAttribute('data-theme')==='dark'){
+        chart.updateOptions({theme:{mode:'dark'},chart:{foreColor:'#c5cee4'},grid:{borderColor:'#39435f'},tooltip:{theme:'dark'}},false,false);
+      }
+    }).catch(error=>console.warn('Chart rendering issue:',error));
+  }
   function initCharts(){if(!window.ApexCharts)return;
     /* Exact seed chart configurations from Section 11 of the provided prompt. */
 if (document.querySelector('#sales-purchase-chart')) {
@@ -247,7 +330,7 @@ var salesPurchaseChart = new ApexCharts(document.querySelector('#sales-purchase-
   legend:  { position: 'top', horizontalAlign: 'right' },
   grid:    { borderColor: '#E8EBED', strokeDashArray: 4 }
 });
-salesPurchaseChart.render();
+registerChart(salesPurchaseChart);
 }
 if (document.querySelector('#category-donut-chart')) {
 var categoryChart = new ApexCharts(document.querySelector('#category-donut-chart'), {
@@ -263,7 +346,7 @@ var categoryChart = new ApexCharts(document.querySelector('#category-donut-chart
         formatter: function () { return '$385K'; } } } } } },
   tooltip: { y: { formatter: function (v) { return v + '%'; } } }
 });
-categoryChart.render();
+registerChart(categoryChart);
 }
 if (document.querySelector('#top-products-chart')) {
 var topProductsChart = new ApexCharts(document.querySelector('#top-products-chart'), {
@@ -278,7 +361,7 @@ var topProductsChart = new ApexCharts(document.querySelector('#top-products-char
            labels: { style: { colors: '#637381' } } },
   grid:  { borderColor: '#E8EBED' }
 });
-topProductsChart.render();
+registerChart(topProductsChart);
 }
 if (document.querySelector('#monthly-revenue-chart')) {
 var revenueChart = new ApexCharts(document.querySelector('#monthly-revenue-chart'), {
@@ -293,7 +376,7 @@ var revenueChart = new ApexCharts(document.querySelector('#monthly-revenue-chart
   tooltip:{ y: { formatter: function (v) { return '$' + v.toLocaleString(); } } },
   grid:   { borderColor: '#E8EBED', strokeDashArray: 4 }
 });
-revenueChart.render();
+registerChart(revenueChart);
 }
 if (document.querySelector('#expense-chart')) {
 var expenseChart = new ApexCharts(document.querySelector('#expense-chart'), {
@@ -305,10 +388,10 @@ var expenseChart = new ApexCharts(document.querySelector('#expense-chart'), {
   dataLabels: { enabled: false },
   plotOptions: { pie: { donut: { size: '60%' } } }
 });
-expenseChart.render();
+registerChart(expenseChart);
 }
   }
   window.addEventListener('load',()=>{const loader=$('#page-loader');if(loader){loader.style.opacity='0';setTimeout(()=>loader.remove(),350);}});
-  document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>$('#page-loader')?.remove(),800);initPlugins();initShell();initRecords();initSettings();initAuth();initBarcode();initPOS();initCharts();});
+  document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>$('#page-loader')?.remove(),800);initPlugins();initTheme();initShell();initRecords();initSettings();initAuth();initBarcode();initPOS();initCharts();});
   window.ERP_DEMO={records,save,drawAll,csvExport};
 })();

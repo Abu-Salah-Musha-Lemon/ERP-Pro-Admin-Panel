@@ -15,17 +15,17 @@ A polished **32-page, responsive, multi-module ERP admin dashboard demo**, writt
 
 ## Modules and pages
 
-| Area                     | Pages                                                                                       |
-| ------------------------ | ------------------------------------------------------------------------------------------- |
-| Overview                 | `index.html`                                                                                |
-| Products                 | `inventory.html`, `addproduct.html`, `categorylist.html`, `brandlist.html`, `barcode.html`  |
-| Sales & POS              | `sales.html`, `add-sales.html`, `pos.html`, `salesreturnlist.html`                          |
-| Purchases                | `purchase.html`, `addpurchase.html`, `purchasereturnlist.html`                              |
-| Operations               | `expense.html`, `quotation.html`, `transfer.html`                                           |
-| Directories              | `customerlist.html`, `supplierlist.html`, `userlist.html`                                   |
-| ERP                      | `hrms.html`, `crm.html`, `finance.html`, `warehouse.html`, `ecommerce.html`, `reports.html` |
-| Account & administration | `settings.html`, `profile.html`, `activities.html`, `signin.html`, `signup.html`            |
-| Error templates          | `error-404.html`, `error-500.html`                                                          |
+| Area | Pages |
+| --- | --- |
+| Overview | `index.html` |
+| Products | `inventory.html`, `addproduct.html`, `categorylist.html`, `brandlist.html`, `barcode.html` |
+| Sales & POS | `sales.html`, `add-sales.html`, `pos.html`, `salesreturnlist.html` |
+| Purchases | `purchase.html`, `addpurchase.html`, `purchasereturnlist.html` |
+| Operations | `expense.html`, `quotation.html`, `transfer.html` |
+| Directories | `customerlist.html`, `supplierlist.html`, `userlist.html` |
+| ERP | `hrms.html`, `crm.html`, `finance.html`, `warehouse.html`, `ecommerce.html`, `reports.html` |
+| Account & administration | `settings.html`, `profile.html`, `activities.html`, `signin.html`, `signup.html` |
+| Error templates | `error-404.html`, `error-500.html` |
 
 ## Architecture
 
@@ -85,3 +85,15 @@ node --check assets/js/seed.js
 ```
 
 See `docs/DEVELOPER_GUIDE.md` before adapting the project to production.
+
+---
+
+## v2.1 Responsive sidebar and night mode update
+
+The sidebar now supports a desktop collapse/expand toggle that remains clickable while collapsed, a mobile slide-in navigation drawer with an explicit close button, a clickable backdrop and Escape-key closing. Saved compact preferences no longer hide mobile submenus. Sidebar controls include ARIA state and mobile off-screen focus protection.
+
+Use the moon/sun icon in the header to enable or disable night mode. The preference persists in the current browser and applies to forms, tables, dialogs, POS, and sign-in/outlier pages; it can also be configured under **Settings → Preferences**. Styling has been checked at 320, 375, 414, 768, 1024 and 1440 pixels. Horizontal data tables may intentionally scroll *inside their table container* on narrow screens.
+
+**Test records:** `docs/CHANGELOG_v2.1.md` and `docs/TEST_REPORT.md`, with `tests/browser_results.json` for machine-readable results.
+
+**Limitation:** The automated browser tested the frontend with local Bootstrap and **without live CDN calls**. Check external libraries and browser-specific behavior in your deployment environment. This is still a local browser-storage demo; a backend and authentication system must be implemented for production use.

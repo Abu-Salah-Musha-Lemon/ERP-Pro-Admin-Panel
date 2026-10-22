@@ -14,3 +14,117 @@
 body[data-theme='dark']{--sidebar-bg:var(--dark-sidebar);--body-bg:var(--dark-root);--card-bg:var(--dark-card);--border-color:var(--dark-border);--table-head-bg:var(--dark-table-head);--text-primary:#f3f4fa;--text-secondary:#b8bed5;--text-muted:#868bad;--active-item-bg:#353570;--bs-body-bg:var(--dark-root);--bs-body-color:#f3f4fa;color-scheme:dark}body[data-theme='dark'] .table{--bs-table-border-color:var(--dark-border)}body[data-theme='dark'] .item-thumb,body[data-theme='dark'] .kanban-col{background:#26264c}body[data-theme='dark'] .dropdown-item{color:var(--text-primary)}body[data-theme='dark'] .dropdown-divider{border-color:var(--dark-border)}body[data-theme='dark'] .btn-outline-secondary{color:#e2e6f9;border-color:#676789}body[data-theme='dark'] .invoice-total{color:#fff}body[data-theme='dark'] .select2-container--bootstrap-5 .select2-selection{background:var(--dark-card);border-color:var(--dark-border);color:white}body[data-theme='dark'] .select2-dropdown,body[data-theme='dark'] .flatpickr-calendar{background:var(--dark-card);color:#fff}body[data-theme='dark'] .form-control::placeholder{color:#9da2c3}body[data-theme='dark'] .auth-visual{background:#10102d}body[data-theme='dark'] .page-item:not(.active) .page-link{background:var(--dark-card);color:#e2e6f9}
 @media(max-width:1199px){.content-wrapper{padding:22px}.header-right{padding:0 16px;gap:7px}.pos-body{grid-template-columns:minmax(0,1.5fr) minmax(320px,1fr)}}@media(max-width:991px){#sidebar{transform:translateX(-100%);width:260px!important}.sidebar-open #sidebar{transform:translateX(0)}.sidebar-overlay.active{display:block;position:fixed;inset:var(--header-height) 0 0;background:#10172f88;z-index:1020}.header-left{border:0;width:auto!important;padding:0 10px 0 15px}.header-left .logo-full{display:block}.mini-sidebar .header-left .logo-full{display:block}.header-left .logo-small,.mini-sidebar .header-left .logo-small{display:none}.header-left .sidebar-toggle-btn{display:none}#page-wrapper,.mini-sidebar #page-wrapper{margin-left:0}.sidebar-menu .menu-text,.mini-sidebar #sidebar .menu-text,.mini-sidebar #sidebar .menu-title span{display:initial}.pos-body{grid-template-columns:1fr}.pos-right{position:static}.auth-body{grid-template-columns:1fr}.auth-visual{display:none}}@media(max-width:620px){.header-search{display:none}.header-right{gap:2px;padding:0 8px}.lang-dropdown{display:none}.content-wrapper{padding:17px 12px 35px}.page-title{font-size:22px}.card-body{padding:16px}.card-header{padding:15px 16px}.stat-card{padding:17px}.page-actions{width:100%}.page-actions .btn{flex:1}.table-toolbar{align-items:stretch}.search-box{width:100%}.search-box .form-control{width:100%}.pos-header{padding:0 10px}.pos-body{padding:10px}.pos-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dt-buttons .btn{font-size:11px}.auth-content{padding:22px}.global-results{max-width:250px}}
 @media print{#header,#sidebar,.sidebar-overlay,.page-heading,.table-toolbar,.bulk-bar,.filter-panel,.btn,.no-print,.dataTables_paginate,.dataTables_length,.dt-buttons{display:none!important}#page-wrapper{margin:0!important;padding:0!important}.content-wrapper{padding:0!important}.card{box-shadow:none;border:0;break-inside:avoid}body{background:white;color:black}.barcode-grid{display:flex;gap:5mm}.barcode-item{break-inside:avoid}.barcode-controls{display:none!important}.pos-wrapper>*:not(.receipt){display:none!important}.receipt{display:block!important;max-width:320px;margin:auto;font-size:12px}.receipt h3{text-align:center}}
+
+
+/* ==============================================================
+   v2.1 Sidebar, dark mode, responsive and accessibility fixes
+   ============================================================= */
+html,body{min-width:0}
+#page-wrapper,.content-wrapper,.card,.card-body,.row>[class*=col-]{min-width:0}
+.sidebar-mobile-header{display:none}
+#sidebar{overscroll-behavior:contain}
+.sidebar-inner{overflow-y:auto;overflow-x:hidden;scrollbar-gutter:stable;scrollbar-width:thin}
+.sidebar-menu .submenu>a{cursor:pointer}
+.sidebar-menu>ul>li>a:focus-visible,.sidebar-menu .submenu ul a:focus-visible{outline:2px solid var(--primary);outline-offset:1px}
+/* The desktop mini-sidebar must always expose its expand button. */
+@media(min-width:992px){
+  .mini-sidebar .header-left{width:var(--sidebar-mini-width);padding:0 7px;gap:3px;justify-content:space-between}
+  .mini-sidebar .logo-small{width:30px;height:30px}
+  .mini-sidebar .sidebar-toggle-btn{display:flex;flex-shrink:0;padding:5px;gap:3px}
+  .mini-sidebar .sidebar-toggle-btn span{width:15px;height:2px}
+  .mini-sidebar .sidebar-toggle-btn span:nth-child(2){width:11px}
+  .mini-sidebar #sidebar:hover .sidebar-menu .submenu.open>ul{display:block}
+  .mini-sidebar #sidebar:hover .sidebar-menu>ul>li>a{padding:10px 12px;gap:13px}
+  .mini-sidebar #sidebar:hover .menu-title{height:auto}
+  .mini-sidebar #sidebar:hover .menu-title span{display:inline}
+  .mini-sidebar #sidebar:hover .menu-text{display:block}
+  .mini-sidebar #sidebar:hover .menu-arrow{display:inline-block}
+}
+/* Full-width mobile drawer with its own dismiss control, regardless of saved mini state. */
+@media(max-width:991px){
+  #sidebar{width:min(300px,88vw)!important;max-width:100vw;display:flex;flex-direction:column}
+  #sidebar .sidebar-inner{flex:1;min-height:0;height:auto;padding-top:5px}
+  #sidebar .sidebar-mobile-header{display:flex;align-items:center;justify-content:space-between;padding:13px 18px 10px 22px;min-height:60px;border-bottom:1px solid var(--border-color);color:var(--text-primary)}
+  .sidebar-close-btn{border:1px solid var(--border-color);background:var(--card-bg);color:var(--text-primary);width:36px;height:36px;display:grid;place-items:center;border-radius:10px}
+  .sidebar-close-btn:hover{background:var(--primary-light)}
+  .sidebar-open{overflow:hidden}
+  .mini-sidebar #sidebar .sidebar-menu>ul>li>a{justify-content:flex-start;padding:10px 12px;gap:13px}
+  .mini-sidebar #sidebar .menu-text{display:block;flex:1}
+  .mini-sidebar #sidebar .menu-arrow{display:inline-block}
+  .mini-sidebar #sidebar .menu-title{height:auto}
+  .mini-sidebar #sidebar .menu-title span{display:inline}
+  .mini-sidebar #sidebar .submenu.open>ul{display:block;max-height:440px;opacity:1}
+  .mini-sidebar #sidebar .submenu:not(.open)>ul{display:block;max-height:0;opacity:0}
+  .mini-sidebar #sidebar:hover{width:min(300px,88vw)!important;box-shadow:none}
+  .mini-sidebar #sidebar:hover .sidebar-menu>ul>li>a{justify-content:flex-start}
+  .sidebar-overlay.active{inset:0;top:var(--header-height);background:rgba(13,20,39,.58);touch-action:none}
+  .header-right{min-width:0}
+}
+/* Dark palette loaded before JS to avoid flashing the light interface. */
+html[data-theme='dark'] body,body[data-theme='dark']{
+  --sidebar-bg:#171b34;--body-bg:#111426;--card-bg:#1c2139;
+  --border-color:#303852;--table-head-bg:#232b46;--active-item-bg:#37415e;
+  --text-primary:#f0f2fa;--text-secondary:#b8c2d9;--text-muted:#9fa9c1;
+  --primary-dark:#ffb35e;--primary-light:rgba(255,159,67,.17);
+  --bs-body-bg:#111426;--bs-body-color:#f0f2fa;
+  color-scheme:dark;
+}
+html[data-theme='dark'] body{background:var(--body-bg);color:var(--text-primary)}
+html[data-bs-theme='dark'] .table{--bs-table-bg:transparent;--bs-table-color:#e7ebf6;--bs-table-border-color:var(--border-color);--bs-table-striped-color:#e7ebf6;--bs-table-hover-color:#fff;--bs-table-hover-bg:#2a3451}
+html[data-bs-theme='dark'] .table-light{--bs-table-bg:#26304b;--bs-table-color:#f0f2fa}
+html[data-bs-theme='dark'] .text-dark{color:#f0f2fa!important}
+html[data-bs-theme='dark'] .table th,html[data-bs-theme='dark'] .table td{border-color:var(--border-color)}
+html[data-bs-theme='dark'] .form-control,html[data-bs-theme='dark'] .form-select,html[data-bs-theme='dark'] .input-group-text{
+  background-color:#232a44;color:#f0f2fa;border-color:var(--border-color)}
+html[data-bs-theme='dark'] .form-control::placeholder{color:#99a4bb}
+html[data-bs-theme='dark'] .form-select option{background:#232a44;color:#f0f2fa}
+html[data-bs-theme='dark'] .modal-content,html[data-bs-theme='dark'] .dropdown-menu{background:#1c2139;color:#f0f2fa;border-color:#303852}
+html[data-bs-theme='dark'] .modal-header,html[data-bs-theme='dark'] .modal-footer{border-color:#303852}
+html[data-bs-theme='dark'] .list-group-item{background:#1c2139;border-color:#303852;color:#e9ebf4}
+html[data-bs-theme='dark'] .page-link{background:#232a44;border-color:#303852;color:#f0f2fa}
+html[data-bs-theme='dark'] .page-item.active .page-link{background:var(--primary);border-color:var(--primary);color:#171c2e}
+html[data-bs-theme='dark'] .dt-button,html[data-bs-theme='dark'] .dataTables_wrapper .dataTables_info,html[data-bs-theme='dark'] .dataTables_wrapper label{color:var(--text-secondary)}
+html[data-bs-theme='dark'] .status-badge,html[data-bs-theme='dark'] .demo-tag{filter:brightness(1.04)}
+html[data-bs-theme='dark'] .sidebar-close-btn{background:var(--card-bg)}
+html[data-bs-theme='dark'] .btn-outline-secondary{color:#e7ebf6;border-color:#6d7897}
+html[data-bs-theme='dark'] .btn-outline-secondary:hover{color:#131626;background:#d1d6e4}
+/* Use a real toggle everywhere, including the POS and standalone screens. */
+#dark-mode-btn{transition:background-color .2s,color .2s;flex-shrink:0}
+#dark-mode-btn[aria-pressed='true']{color:var(--primary-dark)}
+.standalone-theme{border:1px solid var(--border-color);background:var(--card-bg)}
+.floating-theme{position:fixed;top:17px;right:18px;z-index:1150;box-shadow:var(--shadow-sm)}
+/* prevent long labels, stats, action buttons and large grids from widening the viewport */
+.page-heading,.table-toolbar,.page-actions,.header-right{min-width:0}
+.table-responsive{width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.card{max-width:100%}
+.page-title{overflow-wrap:anywhere}
+@media(max-width:767px){
+  .content-wrapper{padding:17px 13px 35px}
+  .page-heading{align-items:flex-start}
+  .dt-btn-wrap,.dt-buttons{max-width:100%}
+  .dataTables_wrapper .row>*{min-width:0}
+  .dataTables_wrapper .dataTables_length,.dataTables_wrapper .dataTables_info{text-align:left!important}
+  .dataTables_wrapper .pagination{flex-wrap:wrap;justify-content:flex-start}
+  .table-toolbar .search-box{flex:1;min-width:160px}
+  .pos-header{height:auto;min-height:68px;flex-wrap:wrap;padding:11px 14px}
+  .pos-body{grid-template-columns:minmax(0,1fr);gap:14px;padding:12px}
+  .pos-right{min-width:0}
+  .auth-card{max-width:100%}
+  .auth-content{min-width:0}
+}
+@media(max-width:420px){
+  .header-left{padding:0 7px 0 10px}
+  .logo-full{width:118px;height:35px}
+  .header-right{padding:0 6px;gap:1px}
+  .header-icon-btn{min-width:34px;min-height:34px}
+  .user-avatar{width:32px;height:32px}
+  .page-title{font-size:21px}
+  .stat-value{font-size:22px}
+  .stat-card{padding:13px;min-height:130px}
+  .pos-product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pos-methods{flex-wrap:wrap}
+  .pos-methods label{min-width:75px}
+  .floating-theme{top:8px;right:8px}
+}
+@media(max-width:345px){.logo-full{width:98px}.header-right .notif-dropdown{display:none}.pos-product-grid{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){#sidebar,#page-wrapper,.sidebar-overlay,.submenu>ul,#dark-mode-btn{transition:none!important}}

@@ -44,7 +44,7 @@
 
 <!-- Custom (always last) -->
 <link rel="stylesheet" href="assets/css/style.css">
-</head><body data-page="customerlist">
+<script>try{if(localStorage.getItem('erpProDemoV2:dark')==='true'){document.documentElement.setAttribute('data-bs-theme','dark');document.documentElement.dataset.theme='dark';}}catch(e){}</script></head><body data-page="customerlist">
 <a href="#page-wrapper" class="visually-hidden-focusable skip-link">Skip to main content</a><div id="page-loader"><div class="loader-ring"><div></div><div></div><div></div><div></div></div></div><div class="sidebar-overlay" id="sidebar-overlay"></div><!-- ========== HEADER ========== -->
 <header id="header" role="banner">
   <div class="header-left">
@@ -52,7 +52,7 @@
       <img src="assets/img/logo.png" alt="ERP Pro" class="logo-full">
       <img src="assets/img/logo-small.png" alt="E" class="logo-small">
     </a>
-    <button id="toggle-sidebar" class="sidebar-toggle-btn" aria-label="Toggle Sidebar">
+    <button id="toggle-sidebar" class="sidebar-toggle-btn" aria-label="Collapse sidebar" aria-expanded="true" aria-controls="sidebar" type="button">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -104,7 +104,7 @@
     </div>
 
     <!-- Dark Mode Toggle -->
-    <button class="header-icon-btn" id="dark-mode-btn" aria-label="Toggle dark mode">
+    <button class="header-icon-btn" id="dark-mode-btn" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode" type="button">
       <i class="bi bi-moon-stars" id="dark-icon"></i>
     </button>
 
@@ -134,14 +134,14 @@
     </div>
 
     <!-- Mobile hamburger -->
-    <button class="header-icon-btn d-lg-none" id="mobile-menu-btn" aria-label="Open menu">
+    <button class="header-icon-btn d-lg-none" id="mobile-menu-btn" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false" type="button">
       <i class="bi bi-list fs-4"></i>
     </button>
   </div>
 </header>
 <!-- ========== /HEADER ========== -->
 <!-- ========== SIDEBAR ========== -->
-<nav id="sidebar" aria-label="Main navigation">
+<nav id="sidebar" aria-label="Main navigation"><div class="sidebar-mobile-header"><strong>Navigation</strong><button type="button" class="sidebar-close-btn" id="close-sidebar" aria-label="Close navigation menu"><i class="bi bi-x-lg"></i><span class="visually-hidden">Close menu</span></button></div>
   <div class="sidebar-inner slimscroll">
     <div class="sidebar-menu">
       <ul>
@@ -367,6 +367,7 @@
   }
   if (typeof toastr === 'undefined') {
     window.toastr = {
+      __erpFallback: true,
       success: function(m){ console.log('[Toastr SUCCESS]', m); },
       error:   function(m){ console.error('[Toastr ERROR]', m); },
       info:    function(m){ console.info('[Toastr INFO]', m); },

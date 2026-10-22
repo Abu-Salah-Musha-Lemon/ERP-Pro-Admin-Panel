@@ -44,7 +44,7 @@
 
 <!-- Custom (always last) -->
 <link rel="stylesheet" href="assets/css/style.css">
-</head><body data-page="signin">
+<script>try{if(localStorage.getItem('erpProDemoV2:dark')==='true'){document.documentElement.setAttribute('data-bs-theme','dark');document.documentElement.dataset.theme='dark';}}catch(e){}</script></head><body data-page="signin"><button class="header-icon-btn standalone-theme floating-theme" type="button" id="dark-mode-btn" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode"><i class="bi bi-moon-stars" id="dark-icon"></i></button>
 <main class="auth-body"><section class="auth-visual"><span class="demo-tag mb-4">ERP Pro workspace</span><h1>Operate smarter.<br>Grow with clarity.</h1><p>Inventory, sales, finance, HR, CRM and analytics—all in one beautifully organized workspace.</p><div class="mt-4"><span class="badge text-bg-light text-dark p-3">One workspace · Every business operation</span></div></section><section class="auth-content"><div class="auth-card"><img class="auth-logo" src="assets/img/logo.png" alt="ERP Pro"><h2>Welcome back</h2><p>Sign in to your ERP workspace</p><div class="hint-box mb-4"><i class="bi bi-info-circle me-1"></i>Demo only: sign-in is not secure authentication.</div><form class="auth-form" data-mode="signin"><div class="mb-3"><label class="form-label" for="auth-email">Email address</label><input id="auth-email" type="email" class="form-control" autocomplete="username" required placeholder="name@company.com"></div><div class="mb-3"><label class="form-label" for="auth-password">Password</label><input id="auth-password" type="password" class="form-control" autocomplete="current-password" minlength="6" required placeholder="••••••••"></div><button type="submit" class="btn btn-primary w-100 mt-2">Sign in to dashboard <i class="bi bi-arrow-right ms-1"></i></button></form><p class="text-center mt-4 small">Don’t have an account? <a href="signup.html">Create an account</a></p><a href="index.html" class="d-block text-center small">Explore dashboard without signing in</a></div></section></main>
 <!-- jQuery 3.6.4 — SlimScroll requires ≤ 3.6.x; 3.7 breaks it -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -100,6 +100,7 @@
   }
   if (typeof toastr === 'undefined') {
     window.toastr = {
+      __erpFallback: true,
       success: function(m){ console.log('[Toastr SUCCESS]', m); },
       error:   function(m){ console.error('[Toastr ERROR]', m); },
       info:    function(m){ console.info('[Toastr INFO]', m); },
