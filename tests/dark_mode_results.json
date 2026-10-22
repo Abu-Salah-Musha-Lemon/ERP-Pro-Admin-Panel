@@ -1,0 +1,454 @@
+{
+  "checks": [
+    "index.html/light: semantic colors and borders",
+    "inventory.html/light: semantic colors and borders",
+    "settings.html/light: semantic colors and borders",
+    "pos.html/light: semantic colors and borders",
+    "index.html/dark: semantic colors and borders",
+    "inventory.html/dark: semantic colors and borders",
+    "settings.html/dark: semantic colors and borders",
+    "pos.html/dark: semantic colors and borders",
+    "Dark CRUD modal background and input contrast",
+    "Dark notifications dropdown uses raised surface",
+    "Dark theme persisted across page navigation"
+  ],
+  "contrast": {
+    "index.html/light": {
+      "body": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".card": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".page-title": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".page-subtitle": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(80, 100, 123)"
+      },
+      ".stat-value": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".stat-label": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(80, 100, 123)"
+      },
+      ".status-badge": {
+        "fg": "rgb(20, 120, 74)",
+        "bg": "rgb(232, 248, 239)",
+        "border": "color(srgb 0.0784314 0.470588 0.290196 / 0.25)"
+      },
+      ".badge-low": {
+        "fg": "rgb(136, 80, 0)",
+        "bg": "rgb(255, 244, 226)",
+        "border": "color(srgb 0.533333 0.313726 0 / 0.25)"
+      },
+      ".table thead th": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(240, 244, 249)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".table tbody td": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".btn-primary": {
+        "fg": "rgb(27, 40, 59)",
+        "bg": "rgb(255, 159, 67)",
+        "border": "rgb(255, 159, 67)"
+      }
+    },
+    "inventory.html/light": {
+      "body": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".card": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".page-title": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".page-subtitle": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(80, 100, 123)"
+      },
+      ".stat-value": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".stat-label": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(80, 100, 123)"
+      },
+      ".status-badge": {
+        "fg": "rgb(20, 120, 74)",
+        "bg": "rgb(232, 248, 239)",
+        "border": "color(srgb 0.0784314 0.470588 0.290196 / 0.25)"
+      },
+      ".badge-low": {
+        "fg": "rgb(136, 80, 0)",
+        "bg": "rgb(255, 244, 226)",
+        "border": "color(srgb 0.533333 0.313726 0 / 0.25)"
+      },
+      ".table thead th": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(240, 244, 249)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".table tbody td": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".form-control": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(131, 149, 170)"
+      },
+      ".form-select": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(131, 149, 170)"
+      },
+      ".btn-primary": {
+        "fg": "rgb(27, 40, 59)",
+        "bg": "rgb(255, 159, 67)",
+        "border": "rgb(255, 159, 67)"
+      }
+    },
+    "settings.html/light": {
+      "body": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".card": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".page-title": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".page-subtitle": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(80, 100, 123)"
+      },
+      ".status-badge": {
+        "fg": "rgb(20, 120, 74)",
+        "bg": "rgb(232, 248, 239)",
+        "border": "color(srgb 0.0784314 0.470588 0.290196 / 0.25)"
+      },
+      ".table thead th": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(240, 244, 249)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".table tbody td": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".form-control": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(131, 149, 170)"
+      },
+      ".form-select": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(131, 149, 170)"
+      },
+      ".btn-primary": {
+        "fg": "rgb(27, 40, 59)",
+        "bg": "rgb(255, 159, 67)",
+        "border": "rgb(255, 159, 67)"
+      }
+    },
+    "pos.html/light": {
+      "body": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(245, 247, 251)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".card": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".card-title": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(31, 48, 69)"
+      },
+      ".table thead th": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(240, 244, 249)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".table tbody td": {
+        "fg": "rgb(80, 100, 123)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(217, 226, 236)"
+      },
+      ".form-control": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(131, 149, 170)"
+      },
+      ".form-select": {
+        "fg": "rgb(31, 48, 69)",
+        "bg": "rgb(255, 255, 255)",
+        "border": "rgb(131, 149, 170)"
+      },
+      ".btn-primary": {
+        "fg": "rgb(27, 40, 59)",
+        "bg": "rgb(255, 159, 67)",
+        "border": "rgb(255, 159, 67)"
+      }
+    },
+    "index.html/dark": {
+      "body": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".card": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".page-title": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".page-subtitle": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(195, 208, 225)"
+      },
+      ".stat-value": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".stat-label": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(195, 208, 225)"
+      },
+      ".status-badge": {
+        "fg": "rgb(91, 231, 174)",
+        "bg": "rgb(24, 62, 55)",
+        "border": "color(srgb 0.356863 0.905882 0.682353 / 0.25)"
+      },
+      ".badge-low": {
+        "fg": "rgb(255, 213, 148)",
+        "bg": "rgb(70, 57, 44)",
+        "border": "color(srgb 1 0.835294 0.580392 / 0.25)"
+      },
+      ".table thead th": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(35, 53, 78)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".table tbody td": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".btn-primary": {
+        "fg": "rgb(27, 40, 59)",
+        "bg": "rgb(255, 175, 90)",
+        "border": "rgb(255, 175, 90)"
+      }
+    },
+    "inventory.html/dark": {
+      "body": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".card": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".page-title": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".page-subtitle": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(195, 208, 225)"
+      },
+      ".stat-value": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".stat-label": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(195, 208, 225)"
+      },
+      ".status-badge": {
+        "fg": "rgb(91, 231, 174)",
+        "bg": "rgb(24, 62, 55)",
+        "border": "color(srgb 0.356863 0.905882 0.682353 / 0.25)"
+      },
+      ".badge-low": {
+        "fg": "rgb(255, 213, 148)",
+        "bg": "rgb(70, 57, 44)",
+        "border": "color(srgb 1 0.835294 0.580392 / 0.25)"
+      },
+      ".table thead th": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(35, 53, 78)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".table tbody td": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".form-control": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(26, 42, 66)",
+        "border": "rgb(110, 131, 158)"
+      },
+      ".form-select": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(26, 42, 66)",
+        "border": "rgb(110, 131, 158)"
+      },
+      ".btn-primary": {
+        "fg": "rgb(27, 40, 59)",
+        "bg": "rgb(255, 175, 90)",
+        "border": "rgb(255, 175, 90)"
+      }
+    },
+    "settings.html/dark": {
+      "body": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".card": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".page-title": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".page-subtitle": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(195, 208, 225)"
+      },
+      ".status-badge": {
+        "fg": "rgb(91, 231, 174)",
+        "bg": "rgb(24, 62, 55)",
+        "border": "color(srgb 0.356863 0.905882 0.682353 / 0.25)"
+      },
+      ".table thead th": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(35, 53, 78)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".table tbody td": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".form-control": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(26, 42, 66)",
+        "border": "rgb(110, 131, 158)"
+      },
+      ".form-select": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(26, 42, 66)",
+        "border": "rgb(110, 131, 158)"
+      },
+      ".btn-primary": {
+        "fg": "rgb(27, 40, 59)",
+        "bg": "rgb(255, 175, 90)",
+        "border": "rgb(255, 175, 90)"
+      }
+    },
+    "pos.html/dark": {
+      "body": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(15, 23, 41)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".card": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".card-title": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(242, 246, 252)"
+      },
+      ".table thead th": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(35, 53, 78)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".table tbody td": {
+        "fg": "rgb(195, 208, 225)",
+        "bg": "rgb(25, 39, 61)",
+        "border": "rgb(64, 83, 109)"
+      },
+      ".form-control": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(26, 42, 66)",
+        "border": "rgb(110, 131, 158)"
+      },
+      ".form-select": {
+        "fg": "rgb(242, 246, 252)",
+        "bg": "rgb(26, 42, 66)",
+        "border": "rgb(110, 131, 158)"
+      },
+      ".btn-primary": {
+        "fg": "rgb(27, 40, 59)",
+        "bg": "rgb(255, 175, 90)",
+        "border": "rgb(255, 175, 90)"
+      }
+    }
+  },
+  "issues": []
+}

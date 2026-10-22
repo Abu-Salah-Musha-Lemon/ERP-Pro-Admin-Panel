@@ -1,0 +1,936 @@
+{
+  "pages": {
+    "activities.html": {},
+    "add-sales.html": {},
+    "addproduct.html": {},
+    "addpurchase.html": {},
+    "barcode.html": {},
+    "brandlist.html": {},
+    "categorylist.html": {},
+    "crm.html": {},
+    "customerlist.html": {},
+    "ecommerce.html": {},
+    "error-404.html": {},
+    "error-500.html": {},
+    "expense.html": {},
+    "finance.html": {},
+    "hrms.html": {},
+    "index.html": {
+      "light": {
+        "mode": "light",
+        "bootstrap": "light",
+        "vars": {
+          "--body-bg": "#F5F7FB",
+          "--card-bg": "#FFFFFF",
+          "--sidebar-bg": "#FFFFFF",
+          "--surface-raised": "#FFFFFF",
+          "--surface-input": "#FFFFFF",
+          "--border-color": "#D9E2EC",
+          "--border-strong": "#8395AA",
+          "--text-primary": "#1F3045",
+          "--text-secondary": "#50647B",
+          "--primary-dark": "#A85605"
+        },
+        "items": {
+          "#header": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          "#sidebar": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".card": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".card-header": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".table": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".table thead th": {
+            "fg": "rgb(80, 100, 123)",
+            "bg": "rgb(240, 244, 249)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".table tbody td": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".status-badge": {
+            "fg": "rgb(20, 120, 74)",
+            "bg": "rgb(232, 248, 239)",
+            "border": "color(srgb 0.0784314 0.470588 0.290196 / 0.25)",
+            "borderStyle": "solid"
+          },
+          ".dropdown-menu": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".page-title": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(31, 48, 69)",
+            "borderStyle": "none"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 159, 67)",
+            "border": "rgb(255, 159, 67)",
+            "borderStyle": "solid"
+          },
+          ".btn-outline-secondary": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".quick-link": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".modal-content": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          }
+        },
+        "overflow": false
+      },
+      "dark": {
+        "mode": "dark",
+        "bootstrap": "dark",
+        "vars": {
+          "--body-bg": "#0F1729",
+          "--card-bg": "#19273D",
+          "--sidebar-bg": "#132037",
+          "--surface-raised": "#22334D",
+          "--surface-input": "#1A2A42",
+          "--border-color": "#40536D",
+          "--border-strong": "#6E839E",
+          "--text-primary": "#F2F6FC",
+          "--text-secondary": "#C3D0E1",
+          "--primary-dark": "#FFC078"
+        },
+        "items": {
+          "#header": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          "#sidebar": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(19, 32, 55)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".card": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".card-header": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".table": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".table thead th": {
+            "fg": "rgb(195, 208, 225)",
+            "bg": "rgb(35, 53, 78)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".table tbody td": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".status-badge": {
+            "fg": "rgb(91, 231, 174)",
+            "bg": "rgb(24, 62, 55)",
+            "border": "color(srgb 0.356863 0.905882 0.682353 / 0.25)",
+            "borderStyle": "solid"
+          },
+          ".dropdown-menu": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(34, 51, 77)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".page-title": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(242, 246, 252)",
+            "borderStyle": "none"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 175, 90)",
+            "border": "rgb(255, 175, 90)",
+            "borderStyle": "solid"
+          },
+          ".btn-outline-secondary": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".quick-link": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".modal-content": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          }
+        },
+        "overflow": false
+      }
+    },
+    "inventory.html": {
+      "light": {
+        "mode": "light",
+        "bootstrap": "light",
+        "vars": {
+          "--body-bg": "#F5F7FB",
+          "--card-bg": "#FFFFFF",
+          "--sidebar-bg": "#FFFFFF",
+          "--surface-raised": "#FFFFFF",
+          "--surface-input": "#FFFFFF",
+          "--border-color": "#D9E2EC",
+          "--border-strong": "#8395AA",
+          "--text-primary": "#1F3045",
+          "--text-secondary": "#50647B",
+          "--primary-dark": "#A85605"
+        },
+        "items": {
+          "#header": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          "#sidebar": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".card": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".card-header": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".table": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".table thead th": {
+            "fg": "rgb(80, 100, 123)",
+            "bg": "rgb(240, 244, 249)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".table tbody td": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".form-control": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".form-select": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".status-badge": {
+            "fg": "rgb(20, 120, 74)",
+            "bg": "rgb(232, 248, 239)",
+            "border": "color(srgb 0.0784314 0.470588 0.290196 / 0.25)",
+            "borderStyle": "solid"
+          },
+          ".dropdown-menu": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".page-title": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(31, 48, 69)",
+            "borderStyle": "none"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 159, 67)",
+            "border": "rgb(255, 159, 67)",
+            "borderStyle": "solid"
+          },
+          ".btn-outline-secondary": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".modal-content": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          }
+        },
+        "overflow": false
+      },
+      "dark": {
+        "mode": "dark",
+        "bootstrap": "dark",
+        "vars": {
+          "--body-bg": "#0F1729",
+          "--card-bg": "#19273D",
+          "--sidebar-bg": "#132037",
+          "--surface-raised": "#22334D",
+          "--surface-input": "#1A2A42",
+          "--border-color": "#40536D",
+          "--border-strong": "#6E839E",
+          "--text-primary": "#F2F6FC",
+          "--text-secondary": "#C3D0E1",
+          "--primary-dark": "#FFC078"
+        },
+        "items": {
+          "#header": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          "#sidebar": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(19, 32, 55)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".card": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".card-header": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".table": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".table thead th": {
+            "fg": "rgb(195, 208, 225)",
+            "bg": "rgb(35, 53, 78)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".table tbody td": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".form-control": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(26, 42, 66)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".form-select": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(26, 42, 66)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".status-badge": {
+            "fg": "rgb(91, 231, 174)",
+            "bg": "rgb(24, 62, 55)",
+            "border": "color(srgb 0.356863 0.905882 0.682353 / 0.25)",
+            "borderStyle": "solid"
+          },
+          ".dropdown-menu": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(34, 51, 77)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".page-title": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(242, 246, 252)",
+            "borderStyle": "none"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 175, 90)",
+            "border": "rgb(255, 175, 90)",
+            "borderStyle": "solid"
+          },
+          ".btn-outline-secondary": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".modal-content": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          }
+        },
+        "overflow": false
+      }
+    },
+    "pos.html": {
+      "light": {
+        "mode": "light",
+        "bootstrap": "light",
+        "vars": {
+          "--body-bg": "#F5F7FB",
+          "--card-bg": "#FFFFFF",
+          "--sidebar-bg": "#FFFFFF",
+          "--surface-raised": "#FFFFFF",
+          "--surface-input": "#FFFFFF",
+          "--border-color": "#D9E2EC",
+          "--border-strong": "#8395AA",
+          "--text-primary": "#1F3045",
+          "--text-secondary": "#50647B",
+          "--primary-dark": "#A85605"
+        },
+        "items": {
+          ".card": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".card-header": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".table": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".table thead th": {
+            "fg": "rgb(80, 100, 123)",
+            "bg": "rgb(240, 244, 249)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".table tbody td": {
+            "fg": "rgb(80, 100, 123)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".form-control": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".form-select": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 159, 67)",
+            "border": "rgb(255, 159, 67)",
+            "borderStyle": "solid"
+          },
+          ".btn-outline-secondary": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".pos-product": {
+            "fg": "rgb(0, 0, 0)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          }
+        },
+        "overflow": false
+      },
+      "dark": {
+        "mode": "dark",
+        "bootstrap": "dark",
+        "vars": {
+          "--body-bg": "#0F1729",
+          "--card-bg": "#19273D",
+          "--sidebar-bg": "#132037",
+          "--surface-raised": "#22334D",
+          "--surface-input": "#1A2A42",
+          "--border-color": "#40536D",
+          "--border-strong": "#6E839E",
+          "--text-primary": "#F2F6FC",
+          "--text-secondary": "#C3D0E1",
+          "--primary-dark": "#FFC078"
+        },
+        "items": {
+          ".card": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".card-header": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".table": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".table thead th": {
+            "fg": "rgb(195, 208, 225)",
+            "bg": "rgb(35, 53, 78)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".table tbody td": {
+            "fg": "rgb(195, 208, 225)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".form-control": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(26, 42, 66)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".form-select": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(26, 42, 66)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 175, 90)",
+            "border": "rgb(255, 175, 90)",
+            "borderStyle": "solid"
+          },
+          ".btn-outline-secondary": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".pos-product": {
+            "fg": "rgb(255, 255, 255)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          }
+        },
+        "overflow": false
+      }
+    },
+    "profile.html": {},
+    "purchase.html": {},
+    "purchasereturnlist.html": {},
+    "quotation.html": {},
+    "reports.html": {},
+    "sales.html": {},
+    "salesreturnlist.html": {},
+    "settings.html": {
+      "light": {
+        "mode": "light",
+        "bootstrap": "light",
+        "vars": {
+          "--body-bg": "#F5F7FB",
+          "--card-bg": "#FFFFFF",
+          "--sidebar-bg": "#FFFFFF",
+          "--surface-raised": "#FFFFFF",
+          "--surface-input": "#FFFFFF",
+          "--border-color": "#D9E2EC",
+          "--border-strong": "#8395AA",
+          "--text-primary": "#1F3045",
+          "--text-secondary": "#50647B",
+          "--primary-dark": "#A85605"
+        },
+        "items": {
+          "#header": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          "#sidebar": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".card": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".card-header": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".table": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".table thead th": {
+            "fg": "rgb(80, 100, 123)",
+            "bg": "rgb(240, 244, 249)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".table tbody td": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".form-control": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".form-select": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".status-badge": {
+            "fg": "rgb(20, 120, 74)",
+            "bg": "rgb(232, 248, 239)",
+            "border": "color(srgb 0.0784314 0.470588 0.290196 / 0.25)",
+            "borderStyle": "solid"
+          },
+          ".dropdown-menu": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          },
+          ".page-title": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(31, 48, 69)",
+            "borderStyle": "none"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 159, 67)",
+            "border": "rgb(255, 159, 67)",
+            "borderStyle": "solid"
+          },
+          ".btn-outline-secondary": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".nav-tabs .nav-link": {
+            "fg": "rgb(168, 86, 5)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "none"
+          },
+          ".modal-content": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(217, 226, 236)",
+            "borderStyle": "solid"
+          }
+        },
+        "overflow": false
+      },
+      "dark": {
+        "mode": "dark",
+        "bootstrap": "dark",
+        "vars": {
+          "--body-bg": "#0F1729",
+          "--card-bg": "#19273D",
+          "--sidebar-bg": "#132037",
+          "--surface-raised": "#22334D",
+          "--surface-input": "#1A2A42",
+          "--border-color": "#40536D",
+          "--border-strong": "#6E839E",
+          "--text-primary": "#F2F6FC",
+          "--text-secondary": "#C3D0E1",
+          "--primary-dark": "#FFC078"
+        },
+        "items": {
+          "#header": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          "#sidebar": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(19, 32, 55)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".card": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".card-header": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".table": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".table thead th": {
+            "fg": "rgb(195, 208, 225)",
+            "bg": "rgb(35, 53, 78)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".table tbody td": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".form-control": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(26, 42, 66)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".form-select": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(26, 42, 66)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".status-badge": {
+            "fg": "rgb(91, 231, 174)",
+            "bg": "rgb(24, 62, 55)",
+            "border": "color(srgb 0.356863 0.905882 0.682353 / 0.25)",
+            "borderStyle": "solid"
+          },
+          ".dropdown-menu": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(34, 51, 77)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          },
+          ".page-title": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(242, 246, 252)",
+            "borderStyle": "none"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 175, 90)",
+            "border": "rgb(255, 175, 90)",
+            "borderStyle": "solid"
+          },
+          ".btn-outline-secondary": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".nav-tabs .nav-link": {
+            "fg": "rgb(255, 192, 120)",
+            "bg": "rgba(0, 0, 0, 0)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "none"
+          },
+          ".modal-content": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(64, 83, 109)",
+            "borderStyle": "solid"
+          }
+        },
+        "overflow": false
+      }
+    },
+    "signin.html": {
+      "light": {
+        "mode": "light",
+        "bootstrap": "light",
+        "vars": {
+          "--body-bg": "#F5F7FB",
+          "--card-bg": "#FFFFFF",
+          "--sidebar-bg": "#FFFFFF",
+          "--surface-raised": "#FFFFFF",
+          "--surface-input": "#FFFFFF",
+          "--border-color": "#D9E2EC",
+          "--border-strong": "#8395AA",
+          "--text-primary": "#1F3045",
+          "--text-secondary": "#50647B",
+          "--primary-dark": "#A85605"
+        },
+        "items": {
+          ".form-control": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(131, 149, 170)",
+            "borderStyle": "solid"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 159, 67)",
+            "border": "rgb(255, 159, 67)",
+            "borderStyle": "solid"
+          },
+          ".auth-body": {
+            "fg": "rgb(31, 48, 69)",
+            "bg": "rgb(255, 255, 255)",
+            "border": "rgb(31, 48, 69)",
+            "borderStyle": "none"
+          }
+        },
+        "overflow": false
+      },
+      "dark": {
+        "mode": "dark",
+        "bootstrap": "dark",
+        "vars": {
+          "--body-bg": "#0F1729",
+          "--card-bg": "#19273D",
+          "--sidebar-bg": "#132037",
+          "--surface-raised": "#22334D",
+          "--surface-input": "#1A2A42",
+          "--border-color": "#40536D",
+          "--border-strong": "#6E839E",
+          "--text-primary": "#F2F6FC",
+          "--text-secondary": "#C3D0E1",
+          "--primary-dark": "#FFC078"
+        },
+        "items": {
+          ".form-control": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(26, 42, 66)",
+            "border": "rgb(110, 131, 158)",
+            "borderStyle": "solid"
+          },
+          ".btn-primary": {
+            "fg": "rgb(27, 40, 59)",
+            "bg": "rgb(255, 175, 90)",
+            "border": "rgb(255, 175, 90)",
+            "borderStyle": "solid"
+          },
+          ".auth-body": {
+            "fg": "rgb(242, 246, 252)",
+            "bg": "rgb(25, 39, 61)",
+            "border": "rgb(242, 246, 252)",
+            "borderStyle": "none"
+          }
+        },
+        "overflow": false
+      }
+    },
+    "signup.html": {},
+    "supplierlist.html": {},
+    "transfer.html": {},
+    "userlist.html": {},
+    "warehouse.html": {}
+  },
+  "failures": [],
+  "sampleContrast": {},
+  "testedWidths": [
+    320,
+    390,
+    768,
+    1024,
+    1440
+  ]
+}

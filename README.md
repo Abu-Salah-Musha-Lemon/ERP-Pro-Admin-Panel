@@ -1,3 +1,11 @@
+# ERP Pro Admin — v3.0 (Unified Dark/Light Theme)
+
+**Latest patch:** Standardized dark/light color tokens, repaired borders and contrast across cards, menus, tables, forms, modals and POS, preserved persistent night mode, and added theme-specific test suites. See `docs/CHANGELOG_v3.0.md` and `docs/TEST_REPORT_v3.0.md`.
+
+**Run:** Extract the ZIP and open `index.html`. The project uses CDN libraries, so internet access is recommended. Sample business data is kept locally in the browser; this is not a production backend.
+
+---
+
 # ERP Pro — Inventory, POS & Enterprise Admin UI
 
 A polished **32-page, responsive, multi-module ERP admin dashboard demo**, written with static HTML, CSS and JavaScript from `master-erp-prompt-v2.md`. No Node build, package installation, database or bundler is required to view the pages.

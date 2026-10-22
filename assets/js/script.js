@@ -183,11 +183,11 @@
       control.setAttribute('aria-label',on?'Switch to light mode':'Switch to dark mode');
       control.setAttribute('title',on?'Switch to light mode':'Switch to dark mode');
     }
-    const meta=$('meta[name="theme-color"]');if(meta)meta.setAttribute('content',on?'#141432':'#FF9F43');
+    const meta=$('meta[name="theme-color"]');if(meta)meta.setAttribute('content',on?'#0F1729':'#F5F7FB');
     const pref=$('#pref-dark');if(pref)pref.checked=on;
     // Keep ApexCharts annotations, grids and tooltips legible in either theme.
     chartInstances.forEach(chart=>{
-      try{chart.updateOptions({theme:{mode:on?'dark':'light'},chart:{foreColor:on?'#c5cee4':'#637381'},grid:{borderColor:on?'#39435f':'#e8ebed'},tooltip:{theme:on?'dark':'light'}},false,false);}catch(e){console.warn('Chart theme update skipped:',e);}
+      try{chart.updateOptions({theme:{mode:on?'dark':'light'},chart:{foreColor:on?'#C3D0E1':'#50647B'},grid:{borderColor:on?'#40536D':'#D9E2EC'},tooltip:{theme:on?'dark':'light'}},false,false);}catch(e){console.warn('Chart theme update skipped:',e);}
     });
     if(toast)notify((on?'Dark':'Light')+' mode enabled.','info','Theme');
   }
@@ -299,7 +299,7 @@
     const result=chart.render();
     if(result&&typeof result.then==='function')result.then(()=>{
       if(document.body.getAttribute('data-theme')==='dark'){
-        chart.updateOptions({theme:{mode:'dark'},chart:{foreColor:'#c5cee4'},grid:{borderColor:'#39435f'},tooltip:{theme:'dark'}},false,false);
+        chart.updateOptions({theme:{mode:'dark'},chart:{foreColor:'#C3D0E1'},grid:{borderColor:'#40536D'},tooltip:{theme:'dark'}},false,false);
       }
     }).catch(error=>console.warn('Chart rendering issue:',error));
   }
