@@ -1,199 +1,262 @@
 <div align="center">
-  <img src="assets/img/logo.png" alt="ERP Pro logo" width="154" />
+  <img src="assets/img/logo.png" alt="ERP Pro logo" width="170" />
 
-  # ERP Pro — Admin Panel
+  # ERP Pro — Admin Dashboard
 
-  **Responsive ERP, Inventory Management & Point-of-Sale Dashboard**
+  ### A modern ERP, Inventory Management & Point-of-Sale frontend
 
-  A multi-page admin interface built with HTML, CSS, JavaScript and Bootstrap.  
-  Designed as a foundation for retail and wholesale business management software.
+  A responsive, multi-page administration interface for exploring retail, wholesale, and business management workflows — built with **HTML, CSS, JavaScript, and Bootstrap**.
 
-  ![Version](https://img.shields.io/badge/version-3.0.1-2563eb)
-  ![Project](https://img.shields.io/badge/status-frontend%20demo-f59e0b)
-  ![HTML](https://img.shields.io/badge/HTML5-CSS3-JavaScript-0f172a)
-  ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.2-7952b3)
-  ![Responsive](https://img.shields.io/badge/responsive-mobile%20%7C%20tablet%20%7C%20desktop-16a34a)
-  ![License](https://img.shields.io/badge/license-Apache--2.0-2563eb)
+  <p>
+    <img alt="Version 3.0.1" src="https://img.shields.io/badge/version-v3.0.1-2563eb?style=flat-square" />
+    <img alt="Frontend demo" src="https://img.shields.io/badge/status-frontend%20demo-e59e0b?style=flat-square" />
+    <img alt="32 HTML pages" src="https://img.shields.io/badge/pages-32-475569?style=flat-square" />
+    <a href="LICENSE"><img alt="Apache License 2.0" src="https://img.shields.io/badge/license-Apache--2.0-22a06b?style=flat-square" /></a>
+    <img alt="Bootstrap 5.3.2" src="https://img.shields.io/badge/Bootstrap-5.3.2-7952b3?style=flat-square" />
+  </p>
 
-  **Author: Abu Salah Musha Lemon**
+  **Created by [Abu Salah Musha Lemon](https://github.com/Abu-Salah-Musha-Lemon)**
+
+  [Features](#-features) · [Screenshots](#-screenshots) · [Quick start](#-quick-start) · [Modules](#-modules--pages) · [Documentation](#-documentation) · [License](#-license--attribution)
 </div>
 
 > [!IMPORTANT]
-> **Frontend demonstration, not a production ERP.** Authentication and access permissions are not enforced server-side; payments, financial figures and some workflows are simulations. Demo records use browser `localStorage`, not a shared database. Do **not** use this release to process real customer, payment, employee or inventory data without implementing a secure backend.
+> **ERP Pro v3.0.1 is a frontend demonstration, not a production-ready ERP.** Sign-in and permissions are UI simulations; sample records are stored in browser `localStorage`. No production backend, database, payment gateway, or secure authentication is included. **Do not enter real credentials or business-sensitive information.**
 
-## Preview
+## ✨ Features
 
-| Dark dashboard | Light dashboard |
-|:---:|:---:|
-| ![ERP Pro dark dashboard](docs/screenshots/dashboard-dark.png) | ![ERP Pro light dashboard](docs/screenshots/dashboard-light.png) |
+| Experience | What's included |
+| :--- | :--- |
+| **Professional dashboard** | KPI cards, analytics charts, activity information, and shortcuts based on sample data |
+| **Responsive navigation** | Desktop sidebar, compact sidebar, mobile drawer, submenu support, and active-page highlighting |
+| **Light & dark themes** | Persistent theme preference; consistent card, table, field, dropdown, and border colors |
+| **Inventory management** | Product list and forms, categories, brands, stock examples, and barcode generation |
+| **Sales & purchasing** | Sales and purchase records, forms, return pages, expenses, quotations, and transfers |
+| **Interactive demo POS** | Product selection, cart, quantity changes, discounts, tax, cash/change, held orders, and printable receipt |
+| **Business modules** | CRM, HRMS, finance, warehouse, e-commerce, reporting, and configuration screens |
+| **Records & exports** | Search, filters, pagination, demo CRUD, bulk actions, CSV import/export, and CDN-enabled table exports |
+| **User experience** | Toast notifications, confirmation dialogs, form feedback, and keyboard-friendly controls |
+| **Copyright & funding-ready** | Responsive author-credit footer on all 32 pages and an optional future external Donate link |
 
-![ERP Pro inventory in dark mode](docs/screenshots/inventory-dark.png)
+> The interface and some CRUD/POS flows are interactive **demos**. Dashboard totals, payroll, finance reports, permissions, payment settings, and several business operations are illustrative rather than connected to real services.
 
-## Highlights
+## 🖼️ Screenshots
 
-- **32 ready-to-open HTML pages** covering a dashboard, product catalog, sales, purchases, customer and supplier records, POS and ERP modules.
-- **Consistent light and dark themes**, persisted in the same browser, with standardized colors, borders and readable controls.
-- **Responsive navigation:** full desktop sidebar, collapsible compact sidebar, mobile slide-in drawer, backdrop close and keyboard-friendly controls.
-- **Reusable data tables:** search, pagination, filters, CSV import/export, CRUD dialogs and bulk actions; advanced DataTables/Excel/PDF features depend on the CDN libraries loading.
-- **Interactive demo POS:** product lookup, cart, quantities, cash/change, discounts, taxes, held orders and receipt printing; checkout updates demo stock and adds a demo sale in local browser storage.
-- **Reports and dashboard visualizations** with example charts and illustrative financial figures.
-- **No frontend build process:** shared HTML/CSS/JS with CDN-hosted dependencies.
-- **Copyright & attribution footer:** visible on all 32 pages; author credit, Apache-2.0 license, and optional donation link (disabled until configured).
+### Dashboard — dark and light modes
 
-## Quick start
+| Dark mode | Light mode |
+| :---: | :---: |
+| ![Dark dashboard](docs/screenshots/dashboard-dark.png) | ![Light dashboard](docs/screenshots/dashboard-light.png) |
 
-**Option A — open directly:** Download the repository as a ZIP, extract it and open `index.html` in Chrome, Edge or Firefox.
+### Inventory management
 
-**Option B — run a local server (recommended):**
+![Inventory screen in dark mode](docs/screenshots/inventory-dark.png)
+
+<details>
+<summary><strong>More screenshots — footer, POS and authentication</strong></summary>
+
+| POS terminal (dark) | Sign-in (dark) |
+| :---: | :---: |
+| ![POS terminal and footer in dark mode](docs/screenshots/pos-footer-dark.png) | ![Sign-in page and footer in dark mode](docs/screenshots/signin-footer-dark.png) |
+
+</details>
+
+## 🚀 Quick start
+
+**Requirements:** A modern desktop or mobile browser. Internet access is needed for full operation of the CDN-loaded libraries. **No npm, build step, or database is required** for the demo.
+
+### Option 1 — open the HTML directly
+
+1. Download the source ZIP from the GitHub repository.
+2. Extract it, keeping the entire project directory together.
+3. Open `index.html` in Chrome, Edge, or Firefox.
+
+### Option 2 — use a local server (recommended)
+
+From the project root, where `index.html` and `README.md` are located:
 
 ```bash
-git clone <YOUR-REPOSITORY-URL>
-cd erp-pro-admin
+# Python 3
 python -m http.server 8000
-# Windows: py -m http.server 8000
+
+# On Windows, this also works when Python Launcher is installed:
+# py -m http.server 8000
 ```
 
-Visit **http://localhost:8000**. No `npm install`, database or build step is required to explore the demo. **Internet access is required for full CDN-based functionality**, including enhanced tables, charts, icons and dialogs.
+Open **http://localhost:8000**.
 
-> **Demo sign-in:** `signin.html` is an interface simulation. Use an email-formatted input and a password of at least six characters to preview the dashboard. No real credentials are required or checked. Do not enter an actual password.
+To clone with Git instead, copy the actual clone URL from your GitHub repository's **Code** menu:
 
-## Modules
+```bash
+git clone YOUR_REPOSITORY_URL
+cd erp-pro-admin-panel  # Or the directory name created by cloning
+python -m http.server 8000
+```
 
-| Module | Key pages | Demo capabilities |
-| --- | --- | --- |
-| Dashboard | `index.html` | KPI cards, charts, shortcuts |
-| Inventory | `inventory.html`, `addproduct.html`, `categorylist.html`, `brandlist.html`, `barcode.html` | Product records, demo stock, barcode generation |
-| Sales & POS | `sales.html`, `add-sales.html`, `pos.html`, `salesreturnlist.html` | Sales records, cart, receipt, returns UI |
-| Purchasing | `purchase.html`, `addpurchase.html`, `purchasereturnlist.html` | Purchase forms, records, returns UI |
-| Operations | `expense.html`, `quotation.html`, `transfer.html` | Expenses, quotations, transfers UI |
-| People | `customerlist.html`, `supplierlist.html`, `userlist.html` | Customer, supplier and user directories |
-| ERP | `hrms.html`, `crm.html`, `finance.html`, `warehouse.html`, `ecommerce.html`, `reports.html` | Module screens and demo workflows |
-| Account & System | `settings.html`, `profile.html`, `activities.html`, `signin.html`, `signup.html` | Preferences, profile and UI-only sign-in |
-| Error screens | `error-404.html`, `error-500.html` | Branded error layouts |
+**Demo login:** `signin.html` is a visual demonstration. An email-formatted input and a password of at least six characters will let you preview the interface. It does **not** authenticate against a server; never enter your real password.
 
-## Technology
+## 🧩 Modules & pages
 
-| Layer | Tools |
-| --- | --- |
-| Structure & style | HTML5, CSS3, Bootstrap 5.3.2, Bootstrap Icons, Font Awesome, Nunito |
-| Interactions | Vanilla JavaScript, jQuery 3.6.4 |
-| Tables & export | DataTables 1.13.8, Buttons 2.4.2, Responsive 2.5.0, JSZip, pdfmake |
-| Charts & controls | ApexCharts, Select2, Flatpickr |
-| Feedback & dialogs | Toastr, SweetAlert2, Animate.css |
-| Barcodes | JsBarcode (barcode page) |
-| Demo persistence | Browser `localStorage` |
+The repository contains **32 standalone HTML pages**.
 
-Dependencies are loaded using external CDNs; the versions above describe the included references, not a guarantee that the remote servers are always available.
+| Area | Pages | Purpose |
+| :--- | :--- | :--- |
+| **Dashboard** | `index.html` | Overview and sample analytics |
+| **Products** | `inventory.html`, `addproduct.html`, `categorylist.html`, `brandlist.html`, `barcode.html` | Catalog and inventory UI |
+| **Sales** | `sales.html`, `add-sales.html`, `salesreturnlist.html`, `pos.html` | Sales and POS demo |
+| **Purchases** | `purchase.html`, `addpurchase.html`, `purchasereturnlist.html` | Purchasing and returns |
+| **Operations** | `expense.html`, `quotation.html`, `transfer.html` | Expenses, quotes, transfers |
+| **People** | `customerlist.html`, `supplierlist.html`, `userlist.html` | Directory management |
+| **ERP modules** | `hrms.html`, `crm.html`, `finance.html`, `warehouse.html`, `ecommerce.html`, `reports.html` | Enterprise management screens |
+| **Account & settings** | `signin.html`, `signup.html`, `profile.html`, `activities.html`, `settings.html` | Account UI, preferences, activity |
+| **Error pages** | `error-404.html`, `error-500.html` | Branded error states |
 
-## Project structure
+## 🧰 Technology stack
+
+| Category | Technologies |
+| :--- | :--- |
+| UI & layout | HTML5, CSS3, Bootstrap 5.3.2, Bootstrap Icons, Font Awesome, Nunito |
+| JavaScript | Vanilla JavaScript, jQuery 3.6.4 |
+| Tables | DataTables 1.13.8, Responsive 2.5.0, Buttons 2.4.2 |
+| Export | CSV support, JSZip, pdfmake |
+| Charts | ApexCharts 3.45.2 |
+| Form controls | Select2, Flatpickr |
+| Notifications & dialogs | Toastr, SweetAlert2, Animate.css |
+| Barcodes | JsBarcode |
+| Demo storage | Browser `localStorage` |
+
+Libraries are included through external CDN links, not a local package manager. Availability of third-party integrations depends on those services loading successfully.
+
+## 📁 Project structure
 
 ```text
 erp-pro-admin/
-├── index.html                 # Overview/dashboard
-├── inventory.html             # Example list & CRUD page
-├── pos.html                   # Standalone POS terminal
-├── [29 other HTML pages]      # ERP modules, auth and errors
+├── index.html                  # Dashboard entry point
+├── inventory.html              # Inventory table and demo record actions
+├── pos.html                    # Standalone point-of-sale interface
+├── ...                         # Other module, account, and error pages
 ├── assets/
-│   ├── css/style.css          # Responsive layout, theme tokens, components
-│   ├── js/project-config.js   # Optional verified external donation link
-│   ├── js/seed.js             # Demo data
-│   ├── js/script.js           # Shared UI logic, tables, POS and charts
-│   └── img/                   # Project images
+│   ├── css/
+│   │   └── style.css           # Design tokens, themes, layouts, responsiveness
+│   ├── js/
+│   │   ├── script.js           # Shared UI behavior and demo workflows
+│   │   ├── seed.js             # Mock records and example data
+│   │   └── project-config.js   # Optional donation URL configuration
+│   └── img/                    # Logo, icons, avatar, images
 ├── docs/
-│   ├── screenshots/           # GitHub screenshots
-│   ├── DEVELOPER_GUIDE.md     # Code architecture and API migration
-│   ├── CHANGELOG_v3.0.md      # Original v3 theme fixes
-│   ├── TEST_REPORT_v3.0.md    # Validation scope and limitations
-│   └── GITHUB_SETUP.md        # Publishing and release instructions
-├── tests/                     # Static, browser and theme verification scripts
-├── CHANGELOG.md               # GitHub changelog
-├── CONTRIBUTING.md            # Contribution guide
-├── SECURITY.md                # Security and demo limitations
+│   ├── screenshots/            # Screenshots embedded in this README
+│   ├── DEVELOPER_GUIDE.md      # Architecture and backend migration notes
+│   ├── GITHUB_SETUP.md         # Repository and release publishing guide
+│   └── TEST_REPORT_v3.0.1.md   # Test scope and limitations
+├── tests/                      # Static and browser validation scripts
+├── .github/                    # GitHub issue and PR templates
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── LICENSE
+├── NOTICE
 └── README.md
 ```
 
-## Themes and responsive behavior
+The HTML pages currently share CSS/JS files but repeat some layout markup. Before introducing a backend, see the [developer guide](docs/DEVELOPER_GUIDE.md) for the intended integration direction.
 
-Use the **moon/sun button** in the top bar, or theme preferences in Settings. The choice is saved in the current browser. Version 3.0 unifies the color system across sidebar, cards, tables, fields, overlays, modals and plugin components, including distinct tokens for standard and stronger borders.
+## 🎨 Themes & customization
 
-The project's tests checked common widths of **320, 375, 414, 768, 1024 and 1440 pixels**. On small screens, wide datasets may scroll *inside* table containers rather than shrinking the columns until they become unreadable.
+- Toggle **night mode** using the moon/sun control in the header.
+- The choice persists across pages in the same browser.
+- Desktop supports an expanded or compact sidebar; mobile uses a slide-in drawer.
+- Visual design variables, including backgrounds, text and border colors, are centralized in [`assets/css/style.css`](assets/css/style.css).
+- Footer copyright and author attribution are available on all 32 pages.
 
-To customize theme colors, change the semantic CSS variables in `assets/css/style.css` rather than hard-coding unrelated component colors. See [the developer guide](docs/DEVELOPER_GUIDE.md).
+When extending the design, reuse existing semantic CSS variables and check **both themes** rather than introducing hard-coded, conflicting colors.
 
-## Demo data and limitations
+## 💾 Data handling & security
 
-The app initializes mock data from `assets/js/seed.js` and stores edited demo records in browser `localStorage` keys beginning with `erpProDemoV2:`. Browser data stays on the same device/browser origin; it is not synced between users or machines.
+ERP Pro seeds example data from `assets/js/seed.js` and saves changes in browser `localStorage` under project-specific keys beginning with `erpProDemoV2:`. POS checkout can update local demo inventory and sales, but that is **not a transaction-safe inventory ledger**.
 
-The following are **not implemented as production services**:
+| Available in the demo | Requires a backend for real deployment |
+| :--- | :--- |
+| Local record examples and editing | Shared database with backups and access controls |
+| Visual sign-in and settings | Secure identity, sessions, and role-based authorization |
+| Client-side cart and checkout simulation | Payment processing and server-validated financial transactions |
+| Sample charts and financial figures | Reconciled accounting and authoritative reports |
+| Browser-local changes | Multi-user synchronization, audit trail, stock ledger |
 
-- Secure login, password management, sessions, server-side role enforcement or permission checks.
-- Shared database, server API, audit ledger or multi-user transactional inventory.
-- Payment gateways, SMTP email, real tax accounting or reconciliation of demo KPI figures.
-- Reliable cross-device synchronization and production backup/recovery.
+To reset demo edits, remove keys starting with `erpProDemoV2:` from your browser's site storage and reload the page. This **deletes changes saved in that browser**.
 
-To reset demo records, remove the project-specific `erpProDemoV2:` local-storage entries in the browser's Developer Tools and reload. **Note:** This deletes local demo changes.
+Review [`SECURITY.md`](SECURITY.md) before publishing a live demo or implementing an API. Do not commit credentials, secret keys, real customer records, or payment information to this repository.
 
-## Verification
+## 🧪 Testing & quality checks
 
-The packaged v3.0 test report records:
+The included v3.0.1 verification report documents the following **offline/local** checks:
 
-| Check | Reported outcome |
-| --- | --- |
-| Static structure | 32/32 HTML pages passed |
-| Browser viewport smoke checks | 32 pages × 6 widths = 192 checks |
-| Light/dark responsive states | 32 pages × 2 themes × 5 widths = 320 checks |
-| JavaScript syntax | Passed for shared JS files |
-| CSS parsing | No parsing errors reported |
-| Additional theme/contrast checks | 11 checks passed |
+- **32/32** HTML pages passed structural validation.
+- **192** responsive smoke checks (32 pages × 6 viewport sizes).
+- **320** light/dark responsive checks in the v3.0 theme audit.
+- **256** footer/theme checks in v3.0.1 (32 pages × 2 themes × 4 viewport sizes).
+- JavaScript syntax checks for shared scripts; additional navigation, theme, records, and POS smoke tests.
 
-Re-run static checks locally:
+Run the static checks from the project root:
 
 ```bash
 python tests/validate_project.py
+python tests/test_footer_release.py
+
+# Optional: Node.js syntax checks
 node --check assets/js/script.js
 node --check assets/js/seed.js
+node --check assets/js/project-config.js
 ```
 
-The v3.0.1 update adds 256 browser checks for footers across 32 pages, two themes and four widths; see `tests/footer_browser_results.json`. Donation link activation and unsafe URL rejection are checked as well.
+See the [v3.0.1 test report](docs/TEST_REPORT_v3.0.1.md) and [v3.0 test report](docs/TEST_REPORT_v3.0.md) for methodology and results. These tests **do not establish production readiness**: live CDN integrations and a backend have not been comprehensively end-to-end tested.
 
-The browser tests exercised application behavior with local/offline substitutes; **live third-party CDN integrations and a real backend were not end-to-end verified**. See [the v3.0.1 test report](docs/TEST_REPORT_v3.0.1.md), along with the original [v3.0 report](docs/TEST_REPORT_v3.0.md).
+## 🗺️ Roadmap
 
-## Roadmap
+The following items are **proposed improvements, not released functionality**:
 
-- [ ] Extract repeated header/sidebar markup into a reusable template or component system.
-- [ ] Implement server authentication, roles, permissions and audit logs.
-- [ ] Add API endpoints and database persistence for products, purchases, sales and customers.
-- [ ] Implement inventory reservations, transactional checkout and correct stock ledgers.
-- [ ] Integrate verified payments, receipts, reports and notifications.
-- [ ] Add CI, full browser E2E tests, security review and automated dependency checks.
+- [ ] Introduce reusable shared layout components instead of repeated header/sidebar HTML.
+- [ ] Add an API and database (Laravel, Django, Node.js, or another suitable backend).
+- [ ] Implement secure authentication, role-based permissions and audit logs.
+- [ ] Add transactional inventory movements across purchases, sales, returns, and warehouses.
+- [ ] Connect verified payment providers and real invoicing/reconciliation.
+- [ ] Expand automated browser tests, accessibility checks, CI and dependency auditing.
+- [ ] Enable an optional donation link after a verified provider account is ready.
 
-These are **planned ideas**, not current features.
+## 🤝 Contributing
 
-## Contributing
+Issues, bug reports and pull requests are welcome. For development conventions and submission instructions, read [`CONTRIBUTING.md`](CONTRIBUTING.md). For responsible security disclosure guidance, see [`SECURITY.md`](SECURITY.md).
 
-Bug reports and improvement proposals are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting a change. For security-related issues, see [SECURITY.md](SECURITY.md). Release history is in [CHANGELOG.md](CHANGELOG.md).
+The project release history is tracked in [`CHANGELOG.md`](CHANGELOG.md), with release-specific details in [`RELEASE_NOTES_v3.0.1.md`](RELEASE_NOTES_v3.0.1.md).
 
-## Author and rights
 
-**Abu Salah Musha Lemon** — Project Author.
+## ❤️ Support the Project
 
-**License:** [Apache License 2.0](LICENSE). Anyone may use, copy, modify, distribute and commercially use the project under the license terms. Retain applicable copyright, attribution and license notices, including the [NOTICE](NOTICE) file when redistributing derivative works. This does not legally require derivative applications to display the same footer permanently; it requires preservation of notices as specified by the license. Third-party libraries remain subject to their own licenses.
+If you find *ERP Pro* useful, consider giving this repository a ⭐ *star*, sharing it with others, or contributing improvements to help the project grow.
 
-## Copyright footer
-
-A shared footer now appears on **all 32 pages**, including the admin dashboard, POS checkout, sign-in/sign-up and error pages. It is responsive, theme-aware and credited to **Abu Salah Musha Lemon**. It links to the Apache-2.0 `LICENSE`, `NOTICE`, and the author's public GitHub profile.
-
-To update the year or text later, edit the footer in the HTML pages (search `<!-- Global project footer`). Theme and layout styles are in `assets/css/style.css` under `v3.0.1 — Shared attribution footer`.
-
-## Donations (future-ready, disabled by default)
-
-This project does **not** process donations or payments. When you have a legitimate, verified donation page (e.g. a hosted payment provider), edit `assets/js/project-config.js`:
+<!-- A donation link is **not active yet**. After setting up a legitimate hosted donation page, configure [`assets/js/project-config.js`](assets/js/project-config.js):
 
 ```js
 window.ERP_CONFIG = Object.freeze({
-  donationUrl: 'https://your-verified-donation-provider.example/your-page'
+  donationUrl: 'https://your-verified-provider.example/donate'
 });
 ```
 
-The **Donate** footer link is automatically revealed on every page only if a syntactically valid `https://` URL is provided. Leaving `donationUrl: ''` hides it; no broken or placeholder donation button is shown. Do not place payment secrets or API keys in client-side code. This does not integrate payment processing.
+The footer's **Donate** link remains hidden while `donationUrl` is empty and appears only with an `https://` URL. No donation/payment gateway is integrated into the frontend. Never include private API credentials in this configuration. -->
 
+## 📄 License & attribution
+
+Copyright © 2026 **Abu Salah Musha Lemon**.
+
+ERP Pro's original project code is licensed under the **[Apache License 2.0](LICENSE)**. Personal use, commercial use, modification, and redistribution are allowed **subject to the license conditions**, including preservation of relevant license, copyright, and attribution notices. Read [`NOTICE`](NOTICE) for the author's attribution statement. Third-party libraries retain their own licenses.
+
+**Important:** Apache-2.0 does **not** require every derivative application's footer to visibly display the original author's name at all times; it requires the applicable notices to be retained as the license specifies.
+
+---
+
+<div align="center">
+
+**ERP Pro — A flexible frontend foundation for business management dashboards.**
+
+Made by **[Abu Salah Musha Lemon](https://github.com/Abu-Salah-Musha-Lemon)** · **v3.0.1** · **Apache-2.0**
+
+</div>
