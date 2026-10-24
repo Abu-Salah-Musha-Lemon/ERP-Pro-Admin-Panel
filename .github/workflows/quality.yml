@@ -1,0 +1,63 @@
+name: ERP Pro Quality Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  static-checks:
+    name: Static validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/js/script.js
+          node --check assets/js/seed.js
+          node --check assets/js/project-config.js
+      - name: Validate HTML, links and assets
+        run: python tests/validate_project.py
+      - name: Verify copyright and footer
+        run: python tests/test_footer_release.py
+
+  browser-smoke:
+    name: Browser smoke tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Playwright
+        run: |
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned Bootstrap test resources
+        run: npm install --no-save --package-lock=false bootstrap@5.3.2
+      - name: Run responsive and interaction smoke tests
+        env:
+          ERP_CI_OFFLINE: '1'
+        run: python tests/ci_browser_smoke.py
