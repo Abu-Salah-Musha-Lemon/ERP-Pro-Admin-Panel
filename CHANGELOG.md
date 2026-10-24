@@ -2,6 +2,17 @@
 
 All notable frontend changes are tracked here. Tag names follow the `vMAJOR.MINOR.PATCH` convention.
 
+## [3.1.0] — 2026-10-24
+
+Published CI/CD, GHCR Docker image and versioned deployment documentation. Application-level Playwright coverage added in the documentation/test update.
+
+- Added reusable GitHub Actions quality checks and offline Playwright browser smoke tests.
+- Added release-triggered GHCR container publishing workflow and rootless Nginx Dockerfile using the current `nginx/nginx-unprivileged` registry.
+- Added versioned deployment, rollback and release-process documentation.
+- Fixed dark-mode assertion in CI browser smoke test to check the actual `<body data-theme>` state.
+- Updated README with CI/CD and Docker instructions while keeping the support section donation-free.
+- Project owner confirmed GHCR publishing and a Docker HTTP 200 response using `-p 8000:8080`. Newly added application tests still require a new GitHub Actions run after committing.
+
 ## [3.0.1] — 2026-10-22
 
 ### Added
@@ -24,7 +35,7 @@ All notable frontend changes are tracked here. Tag names follow the `vMAJOR.MINO
 - 192 viewport smoke checks and 320 light/dark viewport checks.
 - 11 additional theme checks, with browser/third-party integration limitations documented.
 
-## [2.0.0] — Previous frontend update
+## [2.1.0] — Previous frontend update
 
 ### Fixed
 - Desktop sidebar toggle availability and compact sidebar behavior.
@@ -35,4 +46,4 @@ All notable frontend changes are tracked here. Tag names follow the `vMAJOR.MINO
 
 - Base ERP Pro frontend created from `docs/master-erp-prompt-v2.md` with seeded demo data, standalone modules, shared CSS/JS and browser-local interactions.
 
-For detailed implementation notes, see `docs/CHANGELOG_v2.0.md` and `docs/CHANGELOG_v3.0.md`.
+For detailed implementation notes, see `docs/CHANGELOG_v2.1.md` and `docs/CHANGELOG_v3.0.md`.

@@ -1,27 +1,31 @@
 <div align="center">
   <img src="assets/img/logo.png" alt="ERP Pro logo" width="170" />
 
-  # ERP Pro — Admin Dashboard
+  # ERP Pro — Admin Dashboard & POS
 
   ### A modern ERP, Inventory Management & Point-of-Sale frontend
 
   A responsive, multi-page administration interface for exploring retail, wholesale, and business management workflows — built with **HTML, CSS, JavaScript, and Bootstrap**.
 
   <p>
-    <img alt="Version 3.0.1" src="https://img.shields.io/badge/version-v3.0.1-2563eb?style=flat-square" />
+    <img alt="Version 3.1.0" src="https://img.shields.io/badge/version-v3.1.0-2563eb?style=flat-square" />
     <img alt="Frontend demo" src="https://img.shields.io/badge/status-frontend%20demo-e59e0b?style=flat-square" />
     <img alt="32 HTML pages" src="https://img.shields.io/badge/pages-32-475569?style=flat-square" />
     <a href="LICENSE"><img alt="Apache License 2.0" src="https://img.shields.io/badge/license-Apache--2.0-22a06b?style=flat-square" /></a>
     <img alt="Bootstrap 5.3.2" src="https://img.shields.io/badge/Bootstrap-5.3.2-7952b3?style=flat-square" />
+    <a href="https://github.com/Abu-Salah-Musha-Lemon/ERP-Pro-Admin-Panel/actions/workflows/quality.yml"><img alt="CI quality checks" src="https://github.com/Abu-Salah-Musha-Lemon/ERP-Pro-Admin-Panel/actions/workflows/quality.yml/badge.svg" /></a>
+    <a href="https://github.com/Abu-Salah-Musha-Lemon/ERP-Pro-Admin-Panel/pkgs/container/erp-pro-admin-panel"><img alt="GHCR package" src="https://img.shields.io/badge/GHCR-v3.1.0-0e7490?style=flat-square" /></a>
   </p>
+
+  **[Live demo](https://abu-salah-musha-lemon.github.io/ERP-Pro-Admin-Panel/)** · **[Source](https://github.com/Abu-Salah-Musha-Lemon/ERP-Pro-Admin-Panel)** · **[Docker image](https://github.com/Abu-Salah-Musha-Lemon/ERP-Pro-Admin-Panel/pkgs/container/erp-pro-admin-panel)**
 
   **Created by [Abu Salah Musha Lemon](https://github.com/Abu-Salah-Musha-Lemon)**
 
-  [Features](#-features) · [Screenshots](#-screenshots) · [Quick start](#-quick-start) · [Modules](#-modules--pages) · [Documentation](#-documentation) · [License](#-license--attribution)
+  [Features](#-features) · [Screenshots](#-screenshots) · [Quick start](#-quick-start) · [Docker](#-docker--github-packages) · [Modules](#-modules--pages) · [Documentation](#-documentation) · [License](#-license--attribution)
 </div>
 
 > [!IMPORTANT]
-> **ERP Pro v3.0.1 is a frontend demonstration, not a production-ready ERP.** Sign-in and permissions are UI simulations; sample records are stored in browser `localStorage`. No production backend, database, payment gateway, or secure authentication is included. **Do not enter real credentials or business-sensitive information.**
+> **ERP Pro v3.1.0 is a frontend demonstration, not a production-ready ERP.** Sign-in and permissions are UI simulations; sample records are stored in browser `localStorage`. No production backend, database, payment gateway, or secure authentication is included. **Do not enter real credentials or business-sensitive information.**
 
 ## ✨ Features
 
@@ -88,12 +92,49 @@ Open **http://localhost:8000**.
 To clone with Git instead, copy the actual clone URL from your GitHub repository's **Code** menu:
 
 ```bash
-git clone YOUR_REPOSITORY_URL
-cd erp-pro-admin-panel  # Or the directory name created by cloning
+git clone https://github.com/Abu-Salah-Musha-Lemon/ERP-Pro-Admin-Panel.git
+cd ERP-Pro-Admin-Panel
 python -m http.server 8000
 ```
 
 **Demo login:** `signin.html` is a visual demonstration. An email-formatted input and a password of at least six characters will let you preview the interface. It does **not** authenticate against a server; never enter your real password.
+
+## 🐳 Docker & GitHub Packages
+
+A public versioned container is available through [GitHub Container Registry (GHCR)](https://github.com/Abu-Salah-Musha-Lemon/ERP-Pro-Admin-Panel/pkgs/container/erp-pro-admin-panel). No backend or database is included in the image; it serves the static frontend through an unprivileged Nginx server.
+
+**Run the published `v3.1.0` image** (Docker Desktop or Docker Engine required):
+
+```powershell
+docker pull ghcr.io/abu-salah-musha-lemon/erp-pro-admin-panel:v3.1.0
+docker run -d --name erp-pro -p 8000:8080 ghcr.io/abu-salah-musha-lemon/erp-pro-admin-panel:v3.1.0
+```
+
+Open **http://localhost:8000**. Confirm the server response and container status:
+
+```powershell
+curl.exe -I http://localhost:8000/
+docker ps
+docker logs --tail 30 erp-pro
+```
+
+The project owner verified the published image on Windows using **`-p 8000:8080`**: the container was running with Nginx listening on port **8080** and `curl.exe` returned **HTTP 200 OK**. Docker maps `HOST_PORT:CONTAINER_PORT`; `-p 8000:8000` was incorrect for this image. An HTTP 200 response does **not** verify every frontend interaction.
+
+**Stop and remove the demo container:**
+
+```powershell
+docker stop erp-pro
+docker rm erp-pro
+```
+
+**Build from source**, if preferred:
+
+```bash
+docker build -t erp-pro:local .
+docker run --rm -p 8000:8080 erp-pro:local
+```
+
+For other platforms, deployment and rollback, see [Deployment Guide](docs/DEPLOYMENT.md). Pin a version tag or digest for reproducible deployments rather than relying on `latest`.
 
 ## 🧩 Modules & pages
 
@@ -147,9 +188,15 @@ erp-pro-admin/
 │   ├── screenshots/            # Screenshots embedded in this README
 │   ├── DEVELOPER_GUIDE.md      # Architecture and backend migration notes
 │   ├── GITHUB_SETUP.md         # Repository and release publishing guide
-│   └── TEST_REPORT_v3.0.1.md   # Test scope and limitations
-├── tests/                      # Static and browser validation scripts
-├── .github/                    # GitHub issue and PR templates
+│   ├── TEST_REPORT_v3.0.1.md   # Historical frontend test report
+│   ├── APPLICATION_TESTING.md  # Local/CI test instructions
+│   └── APPLICATION_TEST_REPORT_v3.1.0.md  # Current test evidence
+├── tests/                      # Static, responsive and application E2E tests
+├── .github/workflows/
+│   ├── quality.yml             # Checks on pushes, PRs and manual runs
+│   └── publish-container.yml   # GHCR publication after a release
+├── Dockerfile                  # Non-root Nginx static frontend image
+├── .dockerignore               # Excluded files for image build
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 ├── SECURITY.md
@@ -186,29 +233,41 @@ To reset demo edits, remove keys starting with `erpProDemoV2:` from your browser
 
 Review [`SECURITY.md`](SECURITY.md) before publishing a live demo or implementing an API. Do not commit credentials, secret keys, real customer records, or payment information to this repository.
 
-## 🧪 Testing & quality checks
+## 🧪 Application testing & automated quality
 
-The included v3.0.1 verification report documents the following **offline/local** checks:
+Testing is implemented with Python, Playwright (Chromium), and pinned Bootstrap test resources. The following results were obtained from the **local source baseline**, with external CDNs disabled:
 
-- **32/32** HTML pages passed structural validation.
-- **192** responsive smoke checks (32 pages × 6 viewport sizes).
-- **320** light/dark responsive checks in the v3.0 theme audit.
-- **256** footer/theme checks in v3.0.1 (32 pages × 2 themes × 4 viewport sizes).
-- JavaScript syntax checks for shared scripts; additional navigation, theme, records, and POS smoke tests.
+| Test group | Local result | Details |
+| :--- | ---: | :--- |
+| HTML/asset validation | **32/32 passed** | Page structure, links, assets, duplicate IDs |
+| Footer/license checks | **32/32 passed** | Visible author credit, license and donation-hidden default |
+| Responsive page checks | **192/192 passed** | 32 pages × 6 widths (320–1440 px) |
+| Original interactive smoke tests | **11/11 passed** | Sidebar, night mode, inventory, exports, POS |
+| Additional application E2E scenarios | **9/9 passed** | See list below |
 
-Run the static checks from the project root:
+The **9 additional scenarios** exercise inventory edit persistence, negative stock validation, search/export, theme and mobile navigation, insufficient-cash checkout blocking, POS sale and stock deduction, hold/resume, out-of-stock protection, and signup password mismatch validation.
+
+### Run tests locally
 
 ```bash
+python -m pip install playwright==1.56.0 beautifulsoup4==4.12.3
+python -m playwright install chromium
+npm install --no-save --package-lock=false bootstrap@5.3.2
 python tests/validate_project.py
 python tests/test_footer_release.py
-
-# Optional: Node.js syntax checks
-node --check assets/js/script.js
-node --check assets/js/seed.js
-node --check assets/js/project-config.js
+python tests/browser_test.py
+python tests/application_e2e.py
 ```
 
-See the [v3.0.1 test report](docs/TEST_REPORT_v3.0.1.md) and [v3.0 test report](docs/TEST_REPORT_v3.0.md) for methodology and results. These tests **do not establish production readiness**: live CDN integrations and a backend have not been comprehensively end-to-end tested.
+GitHub Actions executes the **Static validation**, **Browser smoke tests**, and **Application-level E2E (offline demo)** jobs for `main` pushes, pull requests targeting `main`, and manual runs. Its release workflow requires quality checks before publishing versioned Docker images to GHCR.
+
+**Scope and limitations:** Local tests above do not represent new live tests of the current GitHub repository or the running GHCR image. The GHCR image was separately confirmed by the owner to return HTTP 200. No real backend, payment security, full live-CDN integration, or cross-browser acceptance testing has been performed.
+
+- [Application Testing Guide](docs/APPLICATION_TESTING.md) — setup, automation, coverage, manual release acceptance.
+- [Application Test Report v3.1.0](docs/APPLICATION_TEST_REPORT_v3.1.0.md) — exact passed checks and exclusions.
+- [Deployment Guide](docs/DEPLOYMENT.md) — GitHub Pages, Docker, GHCR, port mapping, rollback.
+- [Release Process](docs/RELEASE_PROCESS.md) — version tags and release checklist.
+- [Quality Workflow](.github/workflows/quality.yml) · [GHCR Workflow](.github/workflows/publish-container.yml).
 
 ## 🗺️ Roadmap
 
@@ -219,29 +278,18 @@ The following items are **proposed improvements, not released functionality**:
 - [ ] Implement secure authentication, role-based permissions and audit logs.
 - [ ] Add transactional inventory movements across purchases, sales, returns, and warehouses.
 - [ ] Connect verified payment providers and real invoicing/reconciliation.
-- [ ] Expand automated browser tests, accessibility checks, CI and dependency auditing.
+- [ ] Expand automated browser test coverage, accessibility checks and dependency auditing (basic GitHub Actions CI is included in this source update).
 - [ ] Enable an optional donation link after a verified provider account is ready.
 
 ## 🤝 Contributing
 
 Issues, bug reports and pull requests are welcome. For development conventions and submission instructions, read [`CONTRIBUTING.md`](CONTRIBUTING.md). For responsible security disclosure guidance, see [`SECURITY.md`](SECURITY.md).
 
-The project release history is tracked in [`CHANGELOG.md`](CHANGELOG.md), with release-specific details in [`RELEASE_NOTES_v3.0.1.md`](RELEASE_NOTES_v3.0.1.md).
-
+The project release history is tracked in [`CHANGELOG.md`](CHANGELOG.md), with release-specific details in [`RELEASE_NOTES_v3.1.0.md`](RELEASE_NOTES_v3.1.0.md).
 
 ## ❤️ Support the Project
 
-If you find *ERP Pro* useful, consider giving this repository a ⭐ *star*, sharing it with others, or contributing improvements to help the project grow.
-
-<!-- A donation link is **not active yet**. After setting up a legitimate hosted donation page, configure [`assets/js/project-config.js`](assets/js/project-config.js):
-
-```js
-window.ERP_CONFIG = Object.freeze({
-  donationUrl: 'https://your-verified-provider.example/donate'
-});
-```
-
-The footer's **Donate** link remains hidden while `donationUrl` is empty and appears only with an `https://` URL. No donation/payment gateway is integrated into the frontend. Never include private API credentials in this configuration. -->
+If you find **ERP Pro** useful, consider giving this repository a ⭐ **star**, sharing it with others, or contributing improvements to help the project grow.
 
 ## 📄 License & attribution
 
@@ -257,6 +305,6 @@ ERP Pro's original project code is licensed under the **[Apache License 2.0](LIC
 
 **ERP Pro — A flexible frontend foundation for business management dashboards.**
 
-Made by **[Abu Salah Musha Lemon](https://github.com/Abu-Salah-Musha-Lemon)** · **v3.0.1** · **Apache-2.0**
+Made by **[Abu Salah Musha Lemon](https://github.com/Abu-Salah-Musha-Lemon)** · **v3.1.0** · **Apache-2.0**
 
 </div>

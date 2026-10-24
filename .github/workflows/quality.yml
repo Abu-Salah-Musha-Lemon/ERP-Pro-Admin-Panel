@@ -61,3 +61,33 @@ jobs:
         env:
           ERP_CI_OFFLINE: '1'
         run: python tests/ci_browser_smoke.py
+
+  application-tests:
+    name: Application-level E2E (offline demo)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install playwright==1.56.0 beautifulsoup4==4.12.3
+          python -m playwright install --with-deps chromium
+          npm install --no-save --package-lock=false bootstrap@5.3.2
+      - name: Run frontend application scenarios
+        run: python tests/application_e2e.py
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: application-e2e-results
+          path: tests/application_e2e_results.json
+          if-no-files-found: warn

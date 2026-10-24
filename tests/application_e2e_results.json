@@ -1,0 +1,46 @@
+{
+  "run_at_utc": "2026-10-24T06:48:04.502535+00:00",
+  "mode": "offline with local Bootstrap and demo data; NOT deployed Docker/live-CDN testing",
+  "source": "v3.0.1 local baseline + v3.1.0 CI/CD configuration (remote HEAD not fetched)",
+  "total": 9,
+  "passed": 9,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "inventory edit persists",
+      "status": "PASS"
+    },
+    {
+      "name": "inventory rejects negative stock",
+      "status": "PASS"
+    },
+    {
+      "name": "inventory search and selected CSV export",
+      "status": "PASS"
+    },
+    {
+      "name": "theme persistence and sidebar navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "POS prevents insufficient-cash checkout",
+      "status": "PASS"
+    },
+    {
+      "name": "POS sale updates stock and creates receipt",
+      "status": "PASS"
+    },
+    {
+      "name": "POS hold and resume",
+      "status": "PASS"
+    },
+    {
+      "name": "POS blocks out-of-stock product",
+      "status": "PASS"
+    },
+    {
+      "name": "signup mismatched passwords blocked",
+      "status": "PASS"
+    }
+  ]
+}
