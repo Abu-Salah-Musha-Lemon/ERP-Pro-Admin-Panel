@@ -1,6 +1,6 @@
-# ERP Pro Admin — v3.0.0 Theme and Contrast Stabilization
+# ERP Pro Admin — v3.0 Theme and Contrast Stabilization
 
-## Changes since v2.0.0
+## Changes since v2.1
 
 - Replaced conflicting dark-mode declarations with **one semantic design-token system** using `:root` and `:root[data-theme='dark']`. The chosen theme is stored in the browser and applied to the document before first paint.
 - Redesigned dark mode around deep navy (`#0F1729`) plus slate cards (`#19273D`) and raised panels (`#22334D`). The previous mismatched purple/navy surfaces have been removed.

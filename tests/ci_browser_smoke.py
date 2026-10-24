@@ -109,10 +109,10 @@ def run():
             theme = page.locator('#dark-mode-btn')
             if theme.count():
                 theme.click()
-                if page.locator('html').get_attribute('data-theme') != 'dark':
+                if page.locator('body').get_attribute('data-theme') != 'dark':
                     errors.append('Theme button did not activate dark mode')
                 visit('inventory.html')
-                if page.locator('html').get_attribute('data-theme') != 'dark':
+                if page.locator('body').get_attribute('data-theme') != 'dark':
                     errors.append('Dark mode was not persisted between pages')
             else:
                 errors.append('Missing dark mode control')

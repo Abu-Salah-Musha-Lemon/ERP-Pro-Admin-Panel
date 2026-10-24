@@ -27,10 +27,10 @@ Install Docker Desktop or Docker Engine, then run from the repository root:
 
 ```bash
 docker build -t erp-pro:local .
-docker run --rm --name erp-pro -p 8080:8080 erp-pro:local
+docker run --rm --name erp-pro -p 8000:8080 erp-pro:local
 ```
 
-Open http://localhost:8080. This image uses a non-root Nginx service listening on port 8080. Its contents are the static HTML/CSS/JS demo. Your browser's localStorage is outside the container.
+Open http://localhost:8000. This image uses a non-root Nginx service listening on port 8080. Its contents are the static HTML/CSS/JS demo. Your browser's localStorage is outside the container.
 
 ## D. GitHub Container Registry (GHCR)
 
@@ -46,12 +46,14 @@ Pull and run a published public image:
 
 ```bash
 docker pull ghcr.io/abu-salah-musha-lemon/erp-pro-admin-panel:v3.1.0
-docker run -d --name erp-pro -p 8080:8080 ghcr.io/abu-salah-musha-lemon/erp-pro-admin-panel:v3.1.0
+docker run -d --name erp-pro -p 8000:8080 ghcr.io/abu-salah-musha-lemon/erp-pro-admin-panel:v3.1.0
 ```
+
+Note: a published v3.1.0 image was independently pulled by the project owner, and its local HTTP response returned 200 using `-p 8000:8080`. The `EXPOSE 8080` container configuration has been confirmed via `nginx -T`. Docker runtime on a separate system is still needed for any subsequent tags.
 
 ## E. Verify and rollback
 
-- Verify the root page and `inventory.html`, `pos.html` at localhost:8080.
+- Verify the root page and `inventory.html`, `pos.html` at localhost:8000.
 - Check container logs: `docker logs erp-pro`.
 - Stop current service: `docker stop erp-pro && docker rm erp-pro`.
 - Run a previous tested image with its exact version tag, e.g. `:v3.1.0`.

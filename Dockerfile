@@ -1,6 +1,7 @@
 # Apache-2.0; author: Abu Salah Musha Lemon
-# Nginx non-root image exposes port 8080.
-FROM nginxinc/nginx-unprivileged:stable-alpine
+# Nginx official unprivileged image, stable NGINX 1.30.6 on Alpine; port 8080.
+# Registry changed from legacy nginxinc to nginx namespace in upstream releases.
+FROM nginx/nginx-unprivileged:1.30.6-alpine
 
 LABEL org.opencontainers.image.title="ERP Pro Admin Panel" \
       org.opencontainers.image.description="Static ERP and POS frontend demo" \

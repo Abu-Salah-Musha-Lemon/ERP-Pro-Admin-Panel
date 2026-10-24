@@ -8,8 +8,8 @@ import sys, json, os, shutil
 ROOT=Path(__file__).resolve().parent.parent
 OUT=ROOT/'tests'/'browser_results.json'
 # Use local Bootstrap (for offline tests) rather than CDN. Point these paths to your own Bootstrap files if needed.
-BS_CSS_PATH=Path(os.getenv('ERP_TEST_BOOTSTRAP_CSS','/opt/imagemagick/share/doc/ImageMagick-7/www/assets/bootstrap.min.css'))
-BS_JS_PATH=Path(os.getenv('ERP_TEST_BOOTSTRAP_JS','/opt/imagemagick/share/doc/ImageMagick-7/www/assets/bootstrap.bundle.min.js'))
+BS_CSS_PATH=Path(os.getenv('ERP_TEST_BOOTSTRAP_CSS',str(ROOT/'node_modules/bootstrap/dist/css/bootstrap.min.css' if (ROOT/'node_modules/bootstrap/dist/css/bootstrap.min.css').exists() else '/opt/imagemagick/share/doc/ImageMagick-7/www/assets/bootstrap.min.css')))
+BS_JS_PATH=Path(os.getenv('ERP_TEST_BOOTSTRAP_JS',str(ROOT/'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' if (ROOT/'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js').exists() else '/opt/imagemagick/share/doc/ImageMagick-7/www/assets/bootstrap.bundle.min.js')))
 if not (BS_CSS_PATH.is_file() and BS_JS_PATH.is_file()):
     raise SystemExit('Offline Bootstrap files not found. Set ERP_TEST_BOOTSTRAP_CSS and ERP_TEST_BOOTSTRAP_JS. See docs/TEST_REPORT.md.')
 BS_CSS=BS_CSS_PATH.read_text()
